@@ -1,3 +1,4 @@
+using System;
 using Dypsloom.RhythmTimeline.Scoring;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
@@ -6,7 +7,15 @@ public class ScoreChainbuffManager : MonoBehaviour
 {
     [SerializeField] private ScoreManager scoreManager;
 
-    void Start(){
+    public event EventHandler<float> OnChainBuffActivated;
+
+    public static ScoreChainbuffManager Instance {get; private set;}
+
+    private void Awake(){
+        Instance = this;
+    }
+
+    private void Start(){
         scoreManager.OnContinueChain += HandleChainBuff;
     }
 
@@ -23,14 +32,17 @@ public class ScoreChainbuffManager : MonoBehaviour
             if(chainBuffIndex == 1){ //il giocatore ha chain buff I
                 Debug.Log("Buff di 500 punti ottenuto!");
                 scoreManager.AddScoreFlat(500);
+                OnChainBuffActivated?.Invoke(this, 500);
             }
             if(chainBuffIndex == 2){ //il giocatore ha chain buff II
                 Debug.Log("Buff di 1000 punti ottenuto!");
                 scoreManager.AddScoreFlat(1000);
+                OnChainBuffActivated?.Invoke(this, 1000);
             }
             if(chainBuffIndex == 3){ //il giocatore ha chain buff III
                 Debug.Log("Buff di 1500 punti ottenuto!");
                 scoreManager.AddScore(1500);
+                OnChainBuffActivated?.Invoke(this, 1500 * scoreManager.GetMultiplier());
             }
         }
 

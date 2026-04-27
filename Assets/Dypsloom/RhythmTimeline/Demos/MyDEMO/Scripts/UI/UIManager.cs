@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using DTT.UI.ProceduralUI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,6 +13,15 @@ public class UIManager : MonoBehaviour{
 
     [SerializeField] private TextMeshProUGUI scoreToPassText;
 
+    [SerializeField] private TextMeshProUGUI scoreBuffText;
+    [SerializeField] private GameObject euphoriaBar;
+    [SerializeField] private GameObject euphoriaBarMeter;
+
+
+    [SerializeField] private GameObject errorLimitCounter; //oggetto contenitore principale
+    [SerializeField] private GameObject errorLimitCounterMeter; //metro interno del counter, di cui viene modificato il fill amount
+    [SerializeField] private TextMeshProUGUI errorLimitCounterText; //testo che mostra il numero di errori attuale
+
     public static UIManager Instance {get; private set;}
 
     public event EventHandler OnGameStart;
@@ -20,6 +30,11 @@ public class UIManager : MonoBehaviour{
         startPanel.SetActive(true);
         cardChoosingPanel.SetActive(false);
         gameOverPanel.SetActive(false);
+        
+        scoreBuffText.gameObject.SetActive(false);
+
+        euphoriaBar.SetActive(false);
+        errorLimitCounter.SetActive(false);
 
         Instance = this;
     }
@@ -29,6 +44,49 @@ public class UIManager : MonoBehaviour{
 
         GameloopManager.Instance.OnSongEndedUI += ShowCardChoosingPanel;
         GameloopManager.Instance.OnRunEnded += ShowGameOverPanel;
+
+        GameloopManager.Instance.OnShowEuphoriaUI += ShowEuphoriaUI;
+        GameloopManager.Instance.OnShowErrorLimitUI += ShowErrorLimitUI;
+
+        GameloopManager.Instance.OnUpdateErrorLimitUI += UpdateErrorLimitUI;
+
+        GameloopManager.Instance.OnUpdateEuphoriaUI += UpdateEuphoriaUI;
+
+        ScoreChainbuffManager.Instance.OnChainBuffActivated += ShowPointsBoostText;
+    }
+
+    //il primo parametro è il countdown attuale, che scende dal timer massimo a 0, il secondo è il timer massimo
+    private void UpdateEuphoriaUI(float fillAmount){
+        euphoriaBarMeter.GetComponent<RoundedImage>().fillAmount = fillAmount;
+    }
+
+
+    //il primo parametro è il numero attuale di errori effettuati dal giocatore, il secondo è il limite massimo consentito
+    private void UpdateErrorLimitUI(int errorCounter, float errorLimit){
+        //aggiorno la UI del counter degli errori massimi, ad esempio cambiando il testo o attivando/disattivando dei simboli
+        errorLimitCounterText.text = errorCounter.ToString();
+        Debug.Log("Valore normalizzato: " + errorCounter / errorLimit);
+        errorLimitCounterMeter.GetComponent<RoundedImage>().fillAmount = errorCounter / errorLimit;
+    }
+
+    private void ShowEuphoriaUI(object sender, EventArgs e){
+        euphoriaBar.SetActive(true);
+    }
+
+    private void ShowErrorLimitUI(object sender, EventArgs e){
+        errorLimitCounter.SetActive(true);
+    }
+
+    private void ShowPointsBoostText(object sender, float pointsBuff){
+        scoreBuffText.text = "+" + pointsBuff.ToString();
+        scoreBuffText.gameObject.SetActive(true);
+
+        StartCoroutine(HideScoreBuffTextDelay(1.5f));
+    }
+
+    IEnumerator HideScoreBuffTextDelay(float delay){
+        yield return new WaitForSeconds(delay);
+        scoreBuffText.gameObject.SetActive(false);
     }
 
     private void ShowGameOverPanel(object sender, EventArgs e){

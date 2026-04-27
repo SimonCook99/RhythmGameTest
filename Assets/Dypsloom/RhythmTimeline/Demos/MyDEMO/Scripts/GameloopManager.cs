@@ -19,6 +19,12 @@ public class GameloopManager : MonoBehaviour{
     }
     public event EventHandler<ScoreToPass> OnScoreGoalSet;
 
+    //eventi per mostrare e aggiornare la UI dei metri di euphoria e counter di errori massimi
+    public event EventHandler OnShowEuphoriaUI;
+    public event EventHandler OnShowErrorLimitUI;
+    public event Action<float> OnUpdateEuphoriaUI;
+    public event Action<int, float> OnUpdateErrorLimitUI;
+
     public event EventHandler OnSongEndedUI;
     public event EventHandler OnRunEnded;
 
@@ -59,8 +65,10 @@ public class GameloopManager : MonoBehaviour{
     [SerializeField] private ScoreSettings scoreSettingsSO; //file scriptableObject che contiene i punteggi delle varie accuracy, utile per raddoppiare i punti da sottrare in caso di bad o miss col downgrade "Double Error"
     
     [SerializeField] private bool hasEuphoria = false; //Variabile che monitora se il giocatore ha l'upgrade "Euphoria", che raddoppia temporaneamente il moltiplicatore
-    [SerializeField] private float euphoriaDuration = 5f; //durata dell'effetto di euphoria, in secondi
-    [SerializeField] private float euphoriaCooldown = 20f; //Il giocatore potrà attivarlo dopo almeno 20 secondi
+    [SerializeField] private float euphoriaDuration = 5f; //contatore della durata dell'effetto di euphoria, che scende da 5 secondi a 0 quando è attiva
+    [SerializeField] private const float euphoriaDurationMax = 5f; //durata dell'effetto di euphoria attiva
+    [SerializeField] private float euphoriaCooldown = 20f; //contatore corrente che scenderà a partire dal valore cooldownMax
+    [SerializeField] private const float euphoriaCooldownMax = 20f; //Il giocatore potrà attivarlo dopo almeno 20 secondi
     private bool euphoriaActive = false;
     
     /* [SerializeField] private int harderMultiplierCounter = 5; */ //quando il player ha il downgrade "HarderMultiplier", questo valore sarà sommato a quello base per settare il moltiplicatore
@@ -82,6 +90,7 @@ public class GameloopManager : MonoBehaviour{
     [SerializeField] private int[] defaultMultiplierChanges = new int[] {10, 20, 30, 40, 50}; //array che contiene i valori base a cui cambiare moltiplicatore, usato per resettare il contatore dell'harder multiplier a ogni inizio canzone
     private bool hasChangedMultiplier = false; //variabile che monitora se è stato già modificato l'array di moltiplicatore (in caso il gicoatore abbia harder multiplier), in modo da non incrementare i valori a ripetizione
     
+    private float maxErrorLimit = 20f; //il numero iniziale di errori massimi concessi al giocatore quando raccoglie il downgrade "Max Error Limit"
     private int maxErrorLimitCounter = 0; //contatore che conterà il numero di volte in cui il giocatore romperà la combo con un bad o miss, arrivato a 20 sarà gameover
 
 
@@ -120,10 +129,12 @@ public class GameloopManager : MonoBehaviour{
         if(e.breakChain){
 
             maxErrorLimitCounter++;
+            OnUpdateErrorLimitUI?.Invoke(maxErrorLimitCounter, maxErrorLimit); //aggiorno la UI del counter degli errori massimi
             Debug.Log("Numero di errori: " + maxErrorLimitCounter);
 
             if(hasDoubleError){
                 maxErrorLimitCounter++; //se il giocatore ha anche il downgrade double error, allora incremento una volta in più il contatore degli errori
+                OnUpdateErrorLimitUI?.Invoke(maxErrorLimitCounter, maxErrorLimit);
                 Debug.Log("Errore doppio, numero di errori: " + maxErrorLimitCounter);
 
                 if(e.name == "Bad"){ //se il giocatore ha il downgrade double error, allora raddoppia anche la perdita di punti causata da un bad o miss
@@ -269,6 +280,7 @@ public class GameloopManager : MonoBehaviour{
 
         CheckUpgradeOrDownGrade("Harder Multiplier", ref hasHarderMultiplier, playerDowngradesList);
         CheckUpgradeOrDownGrade("Max Error Limit", ref hasMaxErrorLimit, playerDowngradesList);
+        CheckUpgradeOrDownGrade("Double Error", ref hasDoubleError, playerDowngradesList);
 
         //Reimposto il contatore dell'harder multiplier al suo valore iniziale, in caso sia stato aumentato nel corso della canzone precedente
         /* ResetHarderMultiplierCounter(); */
@@ -302,11 +314,11 @@ public class GameloopManager : MonoBehaviour{
     //(es. chain buff, scroll speed ecc.) e aggiornano la lista globale, aggiungendo il livello successivo dell'upgrade in questione da poter trovare
     private void CheckProgressiveUpgradeOrDowngrade(CardSO chosedCard, string name, List<IEquipable> progressionList, ref int index){        
 
-        if(index >= progressionList.Count) return; //se l'indice è già al massimo, non serve controllare di nuovo
+        if(index > progressionList.Count) return; //se l'indice è già al massimo, non serve controllare di nuovo
 
-        //se quello che sto controllando è un upgrade allora controllo solo se l'upgrade preso è un upgrade progressivo,
+        //controllo se la lista passata come parametro progressionList è una lista ponte di upgrade o di downgrade, per fare ciò mi basta controllare solo un elemento
         //stessa logica se la funzione sta controllando un downgrade
-        if(progressionList[index].isUpgrade){
+        if(progressionList[0].isUpgrade){
         
             if(chosedCard.upgrade.Name == name + " I"){
                 index++;
@@ -318,7 +330,7 @@ public class GameloopManager : MonoBehaviour{
                 index++;
             }
 
-        }else if (progressionList[index].isDowngrade){
+        }else if (progressionList[0].isDowngrade){
 
             if(chosedCard.downgrade.Name == name + " I"){
                 index++;
@@ -362,6 +374,20 @@ public class GameloopManager : MonoBehaviour{
             maxErrorLimitCounter = 0;
         }
 
+        if(euphoriaCooldown != euphoriaCooldownMax){ //resetto il contatore di euphoria al suo valore massimo, così che parta vuoto alla prossima canzone
+            euphoriaCooldown = euphoriaCooldownMax;
+            euphoriaDuration = euphoriaDurationMax;
+        }
+
+        //in caso il giocatore abbia scelto un'upgrade che aggiorni la UI di gioco, chiamo il suo evento dedicato
+        if(chosenCard.upgrade.Name == "Euphoria"){
+            OnShowEuphoriaUI?.Invoke(this, EventArgs.Empty);
+        }
+
+        if(chosenCard.downgrade.Name == "Max Error Limit"){
+            OnShowErrorLimitUI?.Invoke(this, EventArgs.Empty);
+        }
+
         if(currentLevelIndex < levelScoresList.Count){
             currentLevelScore = levelScoresList[currentLevelIndex];
             StartGame(this, EventArgs.Empty); //chiamo la funzione startGame per la prossima canzone
@@ -384,18 +410,20 @@ public class GameloopManager : MonoBehaviour{
 
                 if(hasEuphoria && euphoriaCooldown > 0){
                     euphoriaCooldown -= Time.deltaTime;
+                    OnUpdateEuphoriaUI?.Invoke(1 - (euphoriaCooldown / euphoriaCooldownMax));
                 }
 
                 if(euphoriaActive){
                     euphoriaDuration -= Time.deltaTime;
+                    OnUpdateEuphoriaUI?.Invoke(euphoriaDuration / euphoriaDurationMax);
                     Debug.Log("Durata rimanente di Euphoria: " + euphoriaDuration + " secondi");
                 
                     //riporta il moltiplicatore al valore precedente e resetto i contatori di euphoria
                     if(euphoriaDuration <= 0){
                         scoreManager.SetMultiplier(scoreManager.GetMultiplier() / 2);
                         euphoriaActive = false; 
-                        euphoriaDuration = 5f; //resetto la durata per la prossima volta
-                        euphoriaCooldown = 20f; //resetto il cooldown per la prossima volta
+                        euphoriaDuration = euphoriaDurationMax; //resetto la durata per la prossima volta
+                        euphoriaCooldown = euphoriaCooldownMax; //resetto il cooldown per la prossima volta
                         Debug.Log("Euphoria finita, moltiplicatore reimpostato!");
                     }
                 }
@@ -517,6 +545,10 @@ public class GameloopManager : MonoBehaviour{
 
     public int GetScrollSpeedIndex(){
         return scrollSpeedIncreaseIndex;
+    }
+
+    public float GetMaxErrorLimitCounter(){
+        return 20f;
     }
 
 
