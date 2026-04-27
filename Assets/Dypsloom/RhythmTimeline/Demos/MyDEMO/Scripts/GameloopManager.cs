@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Dypsloom.RhythmTimeline.Core;
 using Dypsloom.RhythmTimeline.Core.Managers;
+using Dypsloom.RhythmTimeline.Core.Notes;
 using Dypsloom.RhythmTimeline.Effects;
 using Dypsloom.RhythmTimeline.Scoring;
 using NUnit.Framework;
@@ -52,7 +53,7 @@ public class GameloopManager : MonoBehaviour{
     /* [SerializeField] */ private bool hasPlayerX2Base = false; //Variabile che monitora se il giocatore ha l'upgrade x2 base, aggiornando il punteggio di conseguenza
     /* [SerializeField] */ private bool hasPlayerX6 = false; //Variabile che monitora se il giocatore ha l'upgrade x6, aggiornando il punteggio di conseguenza
     /* [SerializeField] */ private bool hasHarderMultiplier = false; //Variabile che monitora se il giocatore ha il downgrade che rende più difficile raggiungere il moltiplicatore successivo
-    /* [SerializeField] */ private bool hasMaxErrorLimit = false; //Variabile che monitora se il giocatore ha il downgrade "Max Error Limit", che limita il numero di errori massimi per canzone tramite un contatore dedicato
+    [SerializeField] private bool hasMaxErrorLimit = false; //Variabile che monitora se il giocatore ha il downgrade "Max Error Limit", che limita il numero di errori massimi per canzone tramite un contatore dedicato
     
     [SerializeField] private bool hasDoubleError = false; //Variabile che monitora se il giocatore ha il downgrade "Double Error", che raddoppia la perdita di punti in caso di bad o miss (e anche il contatore in caso abbia anche il downgrade "Max Error Limit")
     [SerializeField] private ScoreSettings scoreSettingsSO; //file scriptableObject che contiene i punteggi delle varie accuracy, utile per raddoppiare i punti da sottrare in caso di bad o miss col downgrade "Double Error"
@@ -104,10 +105,56 @@ public class GameloopManager : MonoBehaviour{
 
         playableDirector.stopped += VictoryCheck;
 
-        scoreManager.OnBreakChain += HandleBreakChain;
+        /* scoreManager.OnBreakChain += HandleBreakChain; */
+
+        scoreManager.OnNoteScore += HandleBreakChainNewEvent;
 
         
     }
+
+    private void HandleBreakChainNewEvent(Note note, NoteAccuracy e){
+
+        if(!hasMaxErrorLimit) return; //se non ha il downgrade max error limit, non serve fare controlli aggiuntivi
+
+
+        if(e.breakChain){
+
+            maxErrorLimitCounter++;
+            Debug.Log("Numero di errori: " + maxErrorLimitCounter);
+
+            if(hasDoubleError){
+                maxErrorLimitCounter++; //se il giocatore ha anche il downgrade double error, allora incremento una volta in più il contatore degli errori
+                Debug.Log("Errore doppio, numero di errori: " + maxErrorLimitCounter);
+
+                if(e.name == "Bad"){ //se il giocatore ha il downgrade double error, allora raddoppia anche la perdita di punti causata da un bad o miss
+                    scoreManager.AddScore(scoreSettingsSO.GetGoodNoteAccuracy(100).score); //sottraggo i punti come se fosse un bad, ma raddoppiati
+                }else if(e.name == "Miss"){
+                    scoreManager.AddScore(scoreSettingsSO.GetMissAccuracy().score);
+                }
+            }
+
+        }
+
+        if(maxErrorLimitCounter >= 20){
+            Debug.Log("Hai raggiunto il limite massimo di errori! Riprova il livello.");
+
+            //reimposto i valori iniziali
+            currentLevelIndex = 0;
+            currentLevelScore = levelScoresList[currentLevelIndex];
+            state = State.Menu;
+            maxErrorLimitCounter = 0;
+            hasMaxErrorLimit = false;
+
+            //ERRORE SU RhythmMixerBehaviour AL RIGO 18, MA NON SEMBRA ESSERE BLOCCANTE
+            rhythmDirector.EndSong();
+            playableDirector.Stop(); //fermo la canzone in corso
+
+            //questo evento serve sia alla UI per mostrare il pannello di gameover, sia al player per svuotare le card in suo possesso
+            OnRunEnded?.Invoke(this, EventArgs.Empty);
+        }
+
+    }
+
 
     private void HandleBreakChain(){
 
@@ -366,6 +413,7 @@ public class GameloopManager : MonoBehaviour{
                 if(Keyboard.current.pKey.wasPressedThisFrame){
                     scoreManager.AddScore(currentLevelScore.requiredScore);
                     rhythmDirector.EndSong();
+                    playableDirector.Stop();
                     VictoryCheck(playableDirector);
                 }
 

@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 17447814}
   - component: {fileID: 17447813}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -829,17 +829,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208888646}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1123875016}
+  m_Father: {fileID: 1059130283}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -236}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0.000015258789, y: -0.000011444092}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &208888648
 MonoBehaviour:
@@ -861,7 +861,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -888,15 +888,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -905,7 +905,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -970,7 +970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d9ac374c41e9bb4f8ae4a24eabc80df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scrollSpeed: 0.001
+  _scrollSpeed: 0.003
   _verticalScroll: 0
   _horizontalScroll: 0
   _scrollToStart: 1
@@ -1962,81 +1962,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a7d2cd54da4819a5d9b4fbc22b8533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &466345580
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 466345581}
-  - component: {fileID: 466345584}
-  - component: {fileID: 466345583}
-  m_Layer: 5
-  m_Name: StarsImage
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &466345581
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 466345580}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1123875016}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &466345583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 466345580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: efe6ce32a6a4408489775c70e5d32f11, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &466345584
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 466345580}
-  m_CullTransparentMesh: 1
 --- !u!1 &532794754
 GameObject:
   m_ObjectHideFlags: 0
@@ -2846,6 +2771,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956771275}
   m_CullTransparentMesh: 1
+--- !u!21 &974636365
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Gradient
+  m_Shader: {fileID: 4800000, guid: 24d2f03f504edf644959a6665ed2b2bf, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _GradientTex:
+        m_Texture: {fileID: 1462841995}
+        m_Scale: {x: 0, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _Type: 0
+    - _UseUIAlphaClip: 0
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &982478910
 GameObject:
   m_ObjectHideFlags: 0
@@ -3116,6 +3089,95 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037752116}
   m_CullTransparentMesh: 1
+--- !u!1 &1059130282
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1059130283}
+  - component: {fileID: 1059130285}
+  - component: {fileID: 1059130284}
+  m_Layer: 5
+  m_Name: ScoreMultiplierContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1059130283
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059130282}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 208888647}
+  m_Father: {fileID: 1123875016}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 250, y: -286}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1059130284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059130282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b59f2b313f0ab0b4badc519c5e164d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DTT.ProceduralUI.Runtime::DTT.UI.ProceduralUI.RoundedImage
+  m_Material: {fileID: 974636365}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.57254905}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+  _roundingMode: 1
+  _roundingAmount:
+  - 0.26299998
+  - 0.744
+  - 0
+  - 0
+  _borderThickness: 0.15
+  _useHitboxOutside: 0
+  _useHitboxInside: 0
+  _distanceFalloff: 0
+  _selectedUnit: 0
+  _cornerMode: 1
+  _side: 0
+--- !u!222 &1059130285
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059130282}
+  m_CullTransparentMesh: 1
 --- !u!1 &1070783861
 GameObject:
   m_ObjectHideFlags: 0
@@ -3368,7 +3430,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 31
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -3386,14 +3448,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 17447812}
-  - {fileID: 1223938373}
   - {fileID: 215790531}
-  - {fileID: 1632995746}
-  - {fileID: 466345581}
-  - {fileID: 1644694604}
-  - {fileID: 1798849861}
-  - {fileID: 208888647}
-  - {fileID: 1379568630}
+  - {fileID: 1224308818}
+  - {fileID: 1287713199}
+  - {fileID: 1059130283}
+  - {fileID: 2096196565}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3548,7 +3607,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &1223938372
+--- !u!1 &1224308817
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3556,69 +3615,175 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1223938373}
-  - component: {fileID: 1223938375}
-  - component: {fileID: 1223938374}
+  - component: {fileID: 1224308818}
+  - component: {fileID: 1224308820}
+  - component: {fileID: 1224308819}
   m_Layer: 5
-  m_Name: Background
+  m_Name: ScoreTextContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1223938373
+  m_IsActive: 1
+--- !u!224 &1224308818
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1223938372}
+  m_GameObject: {fileID: 1224308817}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1644694604}
   m_Father: {fileID: 1123875016}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 250, y: -174.65}
+  m_SizeDelta: {x: 200, y: 49.3}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1223938374
+--- !u!114 &1224308819
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1223938372}
+  m_GameObject: {fileID: 1224308817}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Script: {fileID: 11500000, guid: b59f2b313f0ab0b4badc519c5e164d2a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RawImage
-  m_Material: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_EditorClassIdentifier: DTT.ProceduralUI.Runtime::DTT.UI.ProceduralUI.RoundedImage
+  m_Material: {fileID: 1854414209}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.57254905}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: d9b31ebd60af68c469212c1a9f513e74, type: 3}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
---- !u!222 &1223938375
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+  _roundingMode: 1
+  _roundingAmount:
+  - 0.26299998
+  - 1
+  - 0
+  - 0
+  _borderThickness: 0.15
+  _useHitboxOutside: 0
+  _useHitboxInside: 0
+  _distanceFalloff: 0
+  _selectedUnit: 0
+  _cornerMode: 1
+  _side: 0
+--- !u!222 &1224308820
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1223938372}
+  m_GameObject: {fileID: 1224308817}
+  m_CullTransparentMesh: 1
+--- !u!1 &1287713198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1287713199}
+  - component: {fileID: 1287713201}
+  - component: {fileID: 1287713200}
+  m_Layer: 5
+  m_Name: ScoreGoalContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1287713199
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287713198}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1798849861}
+  m_Father: {fileID: 1123875016}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -227.23401, y: -175.00006}
+  m_SizeDelta: {x: 454.467, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1287713200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287713198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b59f2b313f0ab0b4badc519c5e164d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DTT.ProceduralUI.Runtime::DTT.UI.ProceduralUI.RoundedImage
+  m_Material: {fileID: 974636365}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.57254905}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+  _roundingMode: 1
+  _roundingAmount:
+  - 1
+  - 0.25
+  - 0
+  - 0
+  _borderThickness: 0.15
+  _useHitboxOutside: 0
+  _useHitboxInside: 0
+  _distanceFalloff: 0
+  _selectedUnit: 0
+  _cornerMode: 1
+  _side: 0
+--- !u!222 &1287713201
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287713198}
   m_CullTransparentMesh: 1
 --- !u!1 &1337285581
 GameObject:
@@ -3890,17 +4055,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1379568629}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1123875016}
+  m_Father: {fileID: 2096196565}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -338}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0.00047302246, y: -0.0035095215}
+  m_SizeDelta: {x: 125.18, y: 59.464}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1379568631
 MonoBehaviour:
@@ -3922,7 +4087,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3956,8 +4121,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -3966,7 +4131,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -4135,6 +4300,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418064349}
   m_CullTransparentMesh: 1
+--- !u!28 &1462841995
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 4
+  m_Width: 1024
+  m_Height: 1
+  m_CompleteImageSize: 8188
+  m_MipsStripped: 0
+  m_TextureFormat: 4
+  m_MipCount: 11
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 1
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  m_PlatformBlob: 
+  image data: 8188
+  _typelessdata: ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1 &1493661254
 GameObject:
   m_ObjectHideFlags: 0
@@ -4422,97 +4633,6 @@ PlayableDirector:
   m_CorrespondingSourceObject: {fileID: 3321798695791371657, guid: 5496413cdab4af54d9672da7e5d92b03, type: 3}
   m_PrefabInstance: {fileID: 1026149646498734801}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1632995745
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1632995746}
-  - component: {fileID: 1632995748}
-  - component: {fileID: 1632995747}
-  - component: {fileID: 1632995749}
-  m_Layer: 5
-  m_Name: Stars
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1632995746
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632995745}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1123875016}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1632995747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632995745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RawImage
-  m_Material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Texture: {fileID: 2800000, guid: efe6ce32a6a4408489775c70e5d32f11, type: 3}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
---- !u!222 &1632995748
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632995745}
-  m_CullTransparentMesh: 1
---- !u!114 &1632995749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632995745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d9ac374c41e9bb4f8ae4a24eabc80df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ShigeDev.ScrollingUIBackground.ScrollingUIBackground
-  _scrollSpeed: 0.1
-  _verticalScroll: 0
-  _horizontalScroll: 0
-  _scrollToStart: 1
-  _affectsTimeScale: 1
-  _scrollableImage: {fileID: 0}
 --- !u!1 &1644694603
 GameObject:
   m_ObjectHideFlags: 0
@@ -4523,7 +4643,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1644694604}
   - component: {fileID: 1644694606}
-  - component: {fileID: 1644694605}
+  - component: {fileID: 1644694607}
   m_Layer: 5
   m_Name: ScoreText
   m_TagString: Untagged
@@ -4538,19 +4658,27 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1644694603}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1123875016}
+  m_Father: {fileID: 1224308818}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -150}
+  m_AnchoredPosition: {x: 0.000015258789, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &1644694605
+--- !u!222 &1644694606
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644694603}
+  m_CullTransparentMesh: 1
+--- !u!114 &1644694607
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4604,8 +4732,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -4614,7 +4742,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -4642,14 +4770,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &1644694606
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1644694603}
-  m_CullTransparentMesh: 1
 --- !u!114 &1647896796 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2469149889996566922, guid: b845ddf9558de04429c394e9fdb52dad, type: 3}
@@ -4833,17 +4953,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1798849860}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1123875016}
+  m_Father: {fileID: 1287713199}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1227.4197, y: -150}
-  m_SizeDelta: {x: 662.5592, y: 50}
+  m_AnchoredPosition: {x: -0.032592773, y: 0.000076293945}
+  m_SizeDelta: {x: 448.36, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1798849862
 MonoBehaviour:
@@ -4900,7 +5020,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 4
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -4909,7 +5029,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -5124,6 +5244,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1854414209
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Gradient
+  m_Shader: {fileID: 4800000, guid: 24d2f03f504edf644959a6665ed2b2bf, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _GradientTex:
+        m_Texture: {fileID: 2119473564}
+        m_Scale: {x: 0, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _Type: 0
+    - _UseUIAlphaClip: 0
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &1946969801
 GameObject:
   m_ObjectHideFlags: 0
@@ -5367,6 +5535,141 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2090159665}
   m_CullTransparentMesh: 1
+--- !u!1 &2096196564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2096196565}
+  - component: {fileID: 2096196567}
+  - component: {fileID: 2096196566}
+  m_Layer: 5
+  m_Name: ScoreChainContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2096196565
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096196564}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1379568630}
+  m_Father: {fileID: 1123875016}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 250, y: -427.1}
+  m_SizeDelta: {x: 125.181, y: 59.467}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2096196566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096196564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b59f2b313f0ab0b4badc519c5e164d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DTT.ProceduralUI.Runtime::DTT.UI.ProceduralUI.RoundedImage
+  m_Material: {fileID: 974636365}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.57254905}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+  _roundingMode: 1
+  _roundingAmount:
+  - 0.26299998
+  - 1
+  - 0
+  - 0
+  _borderThickness: 0.15
+  _useHitboxOutside: 0
+  _useHitboxInside: 0
+  _distanceFalloff: 0
+  _selectedUnit: 0
+  _cornerMode: 1
+  _side: 0
+--- !u!222 &2096196567
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096196564}
+  m_CullTransparentMesh: 1
+--- !u!28 &2119473564
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 4
+  m_Width: 1024
+  m_Height: 1
+  m_CompleteImageSize: 8188
+  m_MipsStripped: 0
+  m_TextureFormat: 4
+  m_MipCount: 11
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 1
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  m_PlatformBlob: 
+  image data: 8188
+  _typelessdata: fffffffff32121fff32222fff32222fff32222fff32222fff32323fff32323fff32323fff32323fff32323fff32424fff32424fff32424fff32424fff32424fff32525fff32525fff32525fff32525fff32626fff32626fff32626fff32626fff32626fff32727fff32727fff32727fff32727fff32828fff32828fff32828fff32828fff32828fff32929fff32929fff32929fff32929fff32929fff32a2afff32a2afff32a2afff32a2afff32b2bfff32b2bfff42b2bfff42b2bfff42b2bfff42c2cfff42c2cfff42c2cfff42c2cfff42c2cfff42d2dfff42d2dfff42d2dfff42d2dfff42e2efff42e2efff42e2efff42e2efff42e2efff42f2ffff42f2ffff42f2ffff42f2ffff43030fff43030fff43030fff43030fff43030fff43131fff43131fff43131fff43131fff43131fff43232fff43232fff43232fff43232fff43333fff43333fff43333fff43333fff43333fff43434fff43434fff43434fff43434fff43535fff43535fff43535fff43535fff43535fff43636fff43636fff43636fff43636fff43636fff43737fff43737fff43737fff43737fff43838fff43838fff43838fff43838fff43838fff43939fff43939fff43939fff43939fff43939fff43a3afff43a3afff43a3afff43a3afff43b3bfff43b3bfff43b3bfff43b3bfff43b3bfff43c3cfff43c3cfff43c3cfff43c3cfff43d3dfff43d3dfff43d3dfff43d3dfff43d3dfff53e3efff53e3efff53e3efff53e3efff53e3efff53f3ffff53f3ffff53f3ffff53f3ffff54040fff54040fff54040fff54040fff54040fff54141fff54141fff54141fff54141fff54242fff54242fff54242fff54242fff54242fff54343fff54343fff54343fff54343fff54343fff54444fff54444fff54444fff54444fff54545fff54545fff54545fff54545fff54545fff54646fff54646fff54646fff54646fff54646fff54747fff54747fff54747fff54747fff54848fff54848fff54848fff54848fff54848fff54949fff54949fff54949fff54949fff54a4afff54a4afff54a4afff54a4afff54a4afff54b4bfff54b4bfff54b4bfff54b4bfff54b4bfff54c4cfff54c4cfff54c4cfff54c4cfff54d4dfff54d4dfff54d4dfff54d4dfff54d4dfff54e4efff54e4efff54e4efff54e4efff54e4efff54f4ffff54f4ffff54f4ffff54f4ffff55050fff55050fff65050fff65050fff65050fff65151fff65151fff65151fff65151fff65252fff65252fff65252fff65252fff65252fff65353fff65353fff65353fff65353fff65353fff65454fff65454fff65454fff65454fff65555fff65555fff65555fff65555fff65555fff65656fff65656fff65656fff65656fff65757fff65757fff65757fff65757fff65757fff65858fff65858fff65858fff65858fff65858fff65959fff65959fff65959fff65959fff65a5afff65a5afff65a5afff65a5afff65a5afff65b5bfff65b5bfff65b5bfff65b5bfff65b5bfff65c5cfff65c5cfff65c5cfff65c5cfff65d5dfff65d5dfff65d5dfff65d5dfff65d5dfff65e5efff65e5efff65e5efff65e5efff65f5ffff65f5ffff65f5ffff65f5ffff65f5ffff66060fff66060fff66060fff66060fff66060fff66161fff66161fff66161fff66161fff66262fff66262fff66262fff66262fff76262fff76363fff76363fff76363fff76363fff76464fff76464fff76464fff76464fff76464fff76565fff76565fff76565fff76565fff76565fff76666fff76666fff76666fff76666fff76767fff76767fff76767fff76767fff76767fff76868fff76868fff76868fff76868fff76868fff76969fff76969fff76969fff76969fff76a6afff76a6afff76a6afff76a6afff76a6afff76b6bfff76b6bfff76b6bfff76b6bfff76c6cfff76c6cfff76c6cfff76c6cfff76c6cfff76d6dfff76d6dfff76d6dfff76d6dfff76d6dfff76e6efff76e6efff76e6efff76e6efff76f6ffff76f6ffff76f6ffff76f6ffff76f6ffff77070fff77070fff77070fff77070fff77070fff77171fff77171fff77171fff77171fff77272fff77272fff77272fff77272fff77272fff77373fff77373fff77373fff77373fff77474fff77474fff77474fff77474fff77474fff77575fff87575fff87575fff87575fff87575fff87676fff87676fff87676fff87676fff87777fff87777fff87777fff87777fff87777fff87878fff87878fff87878fff87878fff87979fff87979fff87979fff87979fff87979fff87a7afff87a7afff87a7afff87a7afff87a7afff87b7bfff87b7bfff87b7bfff87b7bfff87c7cfff87c7cfff87c7cfff87c7cfff87c7cfff87d7dfff87d7dfff87d7dfff87d7dfff87d7dfff87e7efff87e7efff87e7efff87e7efff87f7ffff87f7ffff87f7ffff87f7ffff87f7ffff88080fff88080fff88080fff88080fff88181fff88181fff88181fff88181fff88181fff88282fff88282fff88282fff88282fff88282fff88383fff88383fff88383fff88383fff88484fff88484fff88484fff88484fff88484fff88585fff88585fff88585fff88585fff88686fff88686fff88686fff88686fff88686fff88787fff88787fff88787fff98787fff98787fff98888fff98888fff98888fff98888fff98989fff98989fff98989fff98989fff98989fff98a8afff98a8afff98a8afff98a8afff98a8afff98b8bfff98b8bfff98b8bfff98b8bfff98c8cfff98c8cfff98c8cfff98c8cfff98c8cfff98d8dfff98d8dfff98d8dfff98d8dfff98e8efff98e8efff98e8efff98e8efff98e8efff98f8ffff98f8ffff98f8ffff98f8ffff98f8ffff99090fff99090fff99090fff99090fff99191fff99191fff99191fff99191fff99191fff99292fff99292fff99292fff99292fff99393fff99393fff99393fff99393fff99393fff99494fff99494fff99494fff99494fff99494fff99595fff99595fff99595fff99595fff99696fff99696fff99696fff99696fff99696fff99797fff99797fff99797fff99797fff99797fff99898fff99898fff99898fff99898fff99999fff99999fff99999fff99999fff99999fffa9a9afffa9a9afffa9a9afffa9a9afffa9b9bfffa9b9bfffa9b9bfffa9b9bfffa9b9bfffa9c9cfffa9c9cfffa9c9cfffa9c9cfffa9c9cfffa9d9dfffa9d9dfffa9d9dfffa9d9dfffa9e9efffa9e9efffa9e9efffa9e9efffa9e9efffa9f9ffffa9f9ffffa9f9ffffa9f9ffffa9f9ffffaa0a0fffaa0a0fffaa0a0fffaa0a0fffaa1a1fffaa1a1fffaa1a1fffaa1a1fffaa1a1fffaa2a2fffaa2a2fffaa2a2fffaa2a2fffaa3a3fffaa3a3fffaa3a3fffaa3a3fffaa3a3fffaa4a4fffaa4a4fffaa4a4fffaa4a4fffaa4a4fffaa5a5fffaa5a5fffaa5a5fffaa5a5fffaa6a6fffaa6a6fffaa6a6fffaa6a6fffaa6a6fffaa7a7fffaa7a7fffaa7a7fffaa7a7fffaa8a8fffaa8a8fffaa8a8fffaa8a8fffaa8a8fffaa9a9fffaa9a9fffaa9a9fffaa9a9fffaa9a9fffaaaaafffaaaaafffaaaaafffaaaaafffaababfffaababfffaababfffaababfffaababfffaacacfffaacacfffbacacfffbacacfffbacacfffbadadfffbadadfffbadadfffbadadfffbaeaefffbaeaefffbaeaefffbaeaefffbaeaefffbafaffffbafaffffbafaffffbafaffffbb0b0fffbb0b0fffbb0b0fffbb0b0fffbb0b0fffbb1b1fffbb1b1fffbb1b1fffbb1b1fffbb1b1fffbb2b2fffbb2b2fffbb2b2fffbb2b2fffbb3b3fffbb3b3fffbb3b3fffbb3b3fffbb3b3fffbb4b4fffbb4b4fffbb4b4fffbb4b4fffbb5b5fffbb5b5fffbb5b5fffbb5b5fffbb5b5fffbb6b6fffbb6b6fffbb6b6fffbb6b6fffbb6b6fffbb7b7fffbb7b7fffbb7b7fffbb7b7fffbb8b8fffbb8b8fffbb8b8fffbb8b8fffbb8b8fffbb9b9fffbb9b9fffbb9b9fffbb9b9fffbb9b9fffbbabafffbbabafffbbabafffbbabafffbbbbbfffbbbbbfffbbbbbfffbbbbbfffbbbbbfffbbcbcfffbbcbcfffbbcbcfffbbcbcfffbbdbdfffbbdbdfffbbdbdfffbbdbdfffbbdbdfffbbebefffbbebefffbbebefffbbebefffbbebefffcbfbffffcbfbffffcbfbffffcbfbffffcc0c0fffcc0c0fffcc0c0fffcc0c0fffcc0c0fffcc1c1fffcc1c1fffcc1c1fffcc1c1fffcc1c1fffcc2c2fffcc2c2fffcc2c2fffcc2c2fffcc3c3fffcc3c3fffcc3c3fffcc3c3fffcc3c3fffcc4c4fffcc4c4fffcc4c4fffcc4c4fffcc5c5fffcc5c5fffcc5c5fffcc5c5fffcc5c5fffcc6c6fffcc6c6fffcc6c6fffcc6c6fffcc6c6fffcc7c7fffcc7c7fffcc7c7fffcc7c7fffcc8c8fffcc8c8fffcc8c8fffcc8c8fffcc8c8fffcc9c9fffcc9c9fffcc9c9fffcc9c9fffccacafffccacafffccacafffccacafffccacafffccbcbfffccbcbfffccbcbfffccbcbfffccbcbfffcccccfffcccccfffcccccfffcccccfffccdcdfffccdcdfffccdcdfffccdcdfffccdcdfffccecefffccecefffccecefffccecefffccecefffccfcffffccfcffffccfcffffccfcffffcd0d0fffcd0d0fffcd0d0fffcd0d0fffcd0d0fffcd1d1fffcd1d1fffdd1d1fffdd1d1fffdd2d2fffdd2d2fffdd2d2fffdd2d2fffdd2d2fffdd3d3fffdd3d3fffdd3d3fffdd3d3fffdd3d3fffdd4d4fffdd4d4fffdd4d4fffdd4d4fffdd5d5fffdd5d5fffdd5d5fffdd5d5fffdd5d5fffdd6d6fffdd6d6fffdd6d6fffdd6d6fffdd7d7fffdd7d7fffdd7d7fffdd7d7fffdd7d7fffdd8d8fffdd8d8fffdd8d8fffdd8d8fffdd8d8fffdd9d9fffdd9d9fffdd9d9fffdd9d9fffddadafffddadafffddadafffddadafffddadafffddbdbfffddbdbfffddbdbfffddbdbfffddbdbfffddcdcfffddcdcfffddcdcfffddcdcfffdddddfffdddddfffdddddfffdddddfffdddddfffddedefffddedefffddedefffddedefffddfdffffddfdffffddfdffffddfdffffddfdffffde0e0fffde0e0fffde0e0fffde0e0fffde0e0fffde1e1fffde1e1fffde1e1fffde1e1fffde2e2fffde2e2fffde2e2fffde2e2fffde2e2fffde3e3fffde3e3fffde3e3fffde3e3fffee3e3fffee4e4fffee4e4fffee4e4fffee4e4fffee5e5fffee5e5fffee5e5fffee5e5fffee5e5fffee6e6fffee6e6fffee6e6fffee6e6fffee7e7fffee7e7fffee7e7fffee7e7fffee7e7fffee8e8fffee8e8fffee8e8fffee8e8fffee8e8fffee9e9fffee9e9fffee9e9fffee9e9fffeeaeafffeeaeafffeeaeafffeeaeafffeeaeafffeebebfffeebebfffeebebfffeebebfffeececfffeececfffeececfffeececfffeececfffeededfffeededfffeededfffeededfffeededfffeeeeefffeeeeefffeeeeefffeeeeefffeefeffffeefeffffeefeffffeefeffffeefeffffef0f0fffef0f0fffef0f0fffef0f0fffef0f0fffef1f1fffef1f1fffef1f1fffef1f1fffef2f2fffef2f2fffef2f2fffef2f2fffef2f2fffef3f3fffef3f3fffef3f3fffef3f3fffef4f4fffef4f4fffef4f4fffef4f4fffef4f4fffef5f5fffef5f5fffef5f5fffef5f5fffef5f5fffef6f6fffff6f6fffff6f6fffff6f6fffff7f7fffff7f7fffff7f7fffff7f7fffff7f7fffff8f8fffff8f8fffff8f8fffff8f8fffff9f9fffff9f9fffff9f9fffff9f9fffff9f9fffffafafffffafafffffafafffffafafffffafafffffbfbfffffbfbfffffbfbfffffbfbfffffcfcfffffcfcfffffcfcfffffcfcfffffcfcfffffdfdfffffdfdfffffdfdfffffdfdfffffdfdfffffefefffffefefffffefefffffefefffffffffffffffffff99090fff32222fff32222fff32323fff32323fff32323fff32424fff32424fff32525fff32525fff32626fff32626fff32626fff32727fff32727fff32828fff32828fff32929fff32929fff32929fff32a2afff32a2afff32b2bfff42b2bfff42c2cfff42c2cfff42c2cfff42d2dfff42d2dfff42e2efff42e2efff42f2ffff42f2ffff43030fff43030fff43030fff43131fff43131fff43232fff43232fff43333fff43333fff43333fff43434fff43434fff43535fff43535fff43636fff43636fff43636fff43737fff43737fff43838fff43838fff43939fff43939fff43939fff43a3afff43a3afff43b3bfff43b3bfff43c3cfff43c3cfff43d3dfff43d3dfff43d3dfff53e3efff53e3efff53f3ffff53f3ffff54040fff54040fff54040fff54141fff54141fff54242fff54242fff54343fff54343fff54343fff54444fff54444fff54545fff54545fff54646fff54646fff54646fff54747fff54747fff54848fff54848fff54949fff54949fff54a4afff54a4afff54a4afff54b4bfff54b4bfff54c4cfff54c4cfff54d4dfff54d4dfff54d4dfff54e4efff54e4efff54f4ffff54f4ffff55050fff65050fff65050fff65151fff65151fff65252fff65252fff65353fff65353fff65353fff65454fff65454fff65555fff65555fff65656fff65656fff65757fff65757fff65757fff65858fff65858fff65959fff65959fff65a5afff65a5afff65a5afff65b5bfff65b5bfff65c5cfff65c5cfff65d5dfff65d5dfff65d5dfff65e5efff65e5efff65f5ffff65f5ffff66060fff66060fff66060fff66161fff66161fff66262fff66262fff76363fff76363fff76464fff76464fff76464fff76565fff76565fff76666fff76666fff76767fff76767fff76767fff76868fff76868fff76969fff76969fff76a6afff76a6afff76a6afff76b6bfff76b6bfff76c6cfff76c6cfff76d6dfff76d6dfff76d6dfff76e6efff76e6efff76f6ffff76f6ffff77070fff77070fff77070fff77171fff77171fff77272fff77272fff77373fff77373fff77474fff77474fff77474fff87575fff87575fff87676fff87676fff87777fff87777fff87777fff87878fff87878fff87979fff87979fff87a7afff87a7afff87a7afff87b7bfff87b7bfff87c7cfff87c7cfff87d7dfff87d7dfff87d7dfff87e7efff87e7efff87f7ffff87f7ffff88080fff88080fff88181fff88181fff88181fff88282fff88282fff88383fff88383fff88484fff88484fff88484fff88585fff88585fff88686fff88686fff88787fff88787fff98787fff98888fff98888fff98989fff98989fff98a8afff98a8afff98a8afff98b8bfff98b8bfff98c8cfff98c8cfff98d8dfff98d8dfff98e8efff98e8efff98e8efff98f8ffff98f8ffff99090fff99090fff99191fff99191fff99191fff99292fff99292fff99393fff99393fff99494fff99494fff99494fff99595fff99595fff99696fff99696fff99797fff99797fff99797fff99898fff99898fff99999fff99999fffa9a9afffa9a9afffa9b9bfffa9b9bfffa9b9bfffa9c9cfffa9c9cfffa9d9dfffa9d9dfffa9e9efffa9e9efffa9e9efffa9f9ffffa9f9ffffaa0a0fffaa0a0fffaa1a1fffaa1a1fffaa1a1fffaa2a2fffaa2a2fffaa3a3fffaa3a3fffaa4a4fffaa4a4fffaa4a4fffaa5a5fffaa5a5fffaa6a6fffaa6a6fffaa7a7fffaa7a7fffaa8a8fffaa8a8fffaa8a8fffaa9a9fffaa9a9fffaaaaafffaaaaafffaababfffaababfffaababfffaacacfffbacacfffbadadfffbadadfffbaeaefffbaeaefffbaeaefffbafaffffbafaffffbb0b0fffbb0b0fffbb1b1fffbb1b1fffbb1b1fffbb2b2fffbb2b2fffbb3b3fffbb3b3fffbb4b4fffbb4b4fffbb5b5fffbb5b5fffbb5b5fffbb6b6fffbb6b6fffbb7b7fffbb7b7fffbb8b8fffbb8b8fffbb8b8fffbb9b9fffbb9b9fffbbabafffbbabafffbbbbbfffbbbbbfffbbbbbfffbbcbcfffbbcbcfffbbdbdfffbbdbdfffbbebefffbbebefffbbebefffcbfbffffcbfbffffcc0c0fffcc0c0fffcc1c1fffcc1c1fffcc1c1fffcc2c2fffcc2c2fffcc3c3fffcc3c3fffcc4c4fffcc4c4fffcc5c5fffcc5c5fffcc5c5fffcc6c6fffcc6c6fffcc7c7fffcc7c7fffcc8c8fffcc8c8fffcc8c8fffcc9c9fffcc9c9fffccacafffccacafffccbcbfffccbcbfffccbcbfffcccccfffcccccfffccdcdfffccdcdfffccecefffccecefffccecefffccfcffffccfcffffcd0d0fffcd0d0fffcd1d1fffdd1d1fffdd2d2fffdd2d2fffdd2d2fffdd3d3fffdd3d3fffdd4d4fffdd4d4fffdd5d5fffdd5d5fffdd5d5fffdd6d6fffdd6d6fffdd7d7fffdd7d7fffdd8d8fffdd8d8fffdd8d8fffdd9d9fffdd9d9fffddadafffddadafffddbdbfffddbdbfffddbdbfffddcdcfffddcdcfffdddddfffdddddfffddedefffddedefffddfdffffddfdffffddfdffffde0e0fffde0e0fffde1e1fffde1e1fffde2e2fffde2e2fffde2e2fffde3e3fffde3e3fffee4e4fffee4e4fffee5e5fffee5e5fffee5e5fffee6e6fffee6e6fffee7e7fffee7e7fffee8e8fffee8e8fffee8e8fffee9e9fffee9e9fffeeaeafffeeaeafffeebebfffeebebfffeececfffeececfffeececfffeededfffeededfffeeeeefffeeeeefffeefeffffeefeffffeefeffffef0f0fffef0f0fffef1f1fffef1f1fffef2f2fffef2f2fffef2f2fffef3f3fffef3f3fffef4f4fffef4f4fffef5f5fffef5f5fffef5f5fffff6f6fffff6f6fffff7f7fffff7f7fffff8f8fffff8f8fffff9f9fffff9f9fffff9f9fffffafafffffafafffffbfbfffffbfbfffffcfcfffffcfcfffffcfcfffffdfdfffffdfdfffffefefffffefefffffffffff65959fff32222fff32323fff32424fff32525fff32626fff32626fff32727fff32828fff32929fff32a2afff32b2bfff42c2cfff42c2cfff42d2dfff42e2efff42f2ffff43030fff43131fff43232fff43333fff43333fff43434fff43535fff43636fff43737fff43838fff43939fff43939fff43a3afff43b3bfff43c3cfff43d3dfff53e3efff53f3ffff54040fff54040fff54141fff54242fff54343fff54444fff54545fff54646fff54646fff54747fff54848fff54949fff54a4afff54b4bfff54c4cfff54d4dfff54d4dfff54e4efff54f4ffff65050fff65151fff65252fff65353fff65353fff65454fff65555fff65656fff65757fff65858fff65959fff65a5afff65a5afff65b5bfff65c5cfff65d5dfff65e5efff65f5ffff66060fff66060fff66161fff66262fff76363fff76464fff76565fff76666fff76767fff76767fff76868fff76969fff76a6afff76b6bfff76c6cfff76d6dfff76d6dfff76e6efff76f6ffff77070fff77171fff77272fff77373fff77474fff77474fff87575fff87676fff87777fff87878fff87979fff87a7afff87a7afff87b7bfff87c7cfff87d7dfff87e7efff87f7ffff88080fff88181fff88181fff88282fff88383fff88484fff88585fff88686fff88787fff98787fff98888fff98989fff98a8afff98b8bfff98c8cfff98d8dfff98e8efff98e8efff98f8ffff99090fff99191fff99292fff99393fff99494fff99494fff99595fff99696fff99797fff99898fff99999fffa9a9afffa9b9bfffa9b9bfffa9c9cfffa9d9dfffa9e9efffa9f9ffffaa0a0fffaa1a1fffaa1a1fffaa2a2fffaa3a3fffaa4a4fffaa5a5fffaa6a6fffaa7a7fffaa8a8fffaa8a8fffaa9a9fffaaaaafffaababfffaacacfffbadadfffbaeaefffbaeaefffbafaffffbb0b0fffbb1b1fffbb2b2fffbb3b3fffbb4b4fffbb5b5fffbb5b5fffbb6b6fffbb7b7fffbb8b8fffbb9b9fffbbabafffbbbbbfffbbbbbfffbbcbcfffbbdbdfffbbebefffcbfbffffcc0c0fffcc1c1fffcc1c1fffcc2c2fffcc3c3fffcc4c4fffcc5c5fffcc6c6fffcc7c7fffcc8c8fffcc8c8fffcc9c9fffccacafffccbcbfffcccccfffccdcdfffccecefffccecefffccfcffffcd0d0fffdd1d1fffdd2d2fffdd3d3fffdd4d4fffdd5d5fffdd5d5fffdd6d6fffdd7d7fffdd8d8fffdd9d9fffddadafffddbdbfffddbdbfffddcdcfffdddddfffddedefffddfdffffde0e0fffde1e1fffde2e2fffde2e2fffde3e3fffee4e4fffee5e5fffee6e6fffee7e7fffee8e8fffee8e8fffee9e9fffeeaeafffeebebfffeececfffeededfffeeeeefffeefeffffeefeffffef0f0fffef1f1fffef2f2fffef3f3fffef4f4fffef5f5fffef5f5fffff6f6fffff7f7fffff8f8fffff9f9fffffafafffffbfbfffffcfcfffffcfcfffffdfdfffffefefff43d3dfff32323fff32525fff32626fff32828fff32a2afff42c2cfff42d2dfff42f2ffff43131fff43333fff43434fff43636fff43838fff43939fff43b3bfff43d3dfff53f3ffff54040fff54242fff54444fff54646fff54747fff54949fff54b4bfff54d4dfff54e4efff65050fff65252fff65353fff65555fff65757fff65959fff65a5afff65c5cfff65e5efff66060fff66161fff76363fff76565fff76767fff76868fff76a6afff76c6cfff76d6dfff76f6ffff77171fff77373fff77474fff87676fff87878fff87a7afff87b7bfff87d7dfff87f7ffff88181fff88282fff88484fff88686fff98787fff98989fff98b8bfff98d8dfff98e8efff99090fff99292fff99494fff99595fff99797fff99999fffa9b9bfffa9c9cfffa9e9efffaa0a0fffaa1a1fffaa3a3fffaa5a5fffaa7a7fffaa8a8fffaaaaafffaacacfffbaeaefffbafaffffbb1b1fffbb3b3fffbb5b5fffbb6b6fffbb8b8fffbbabafffbbbbbfffbbdbdfffcbfbffffcc1c1fffcc2c2fffcc4c4fffcc6c6fffcc8c8fffcc9c9fffccbcbfffccdcdfffccecefffcd0d0fffdd2d2fffdd4d4fffdd5d5fffdd7d7fffdd9d9fffddbdbfffddcdcfffddedefffde0e0fffde2e2fffde3e3fffee5e5fffee7e7fffee8e8fffeeaeafffeececfffeeeeefffeefeffffef1f1fffef3f3fffef5f5fffff6f6fffff8f8fffffafafffffcfcfffffdfdfff33030fff32525fff32929fff42c2cfff43030fff43333fff43737fff43a3afff43e3efff54141fff54545fff54848fff54c4cfff54f4ffff65252fff65656fff65959fff65d5dfff66060fff76464fff76767fff76b6bfff76e6efff77272fff77575fff87979fff87c7cfff88080fff88383fff88686fff98a8afff98d8dfff99191fff99494fff99898fffa9b9bfffa9f9ffffaa2a2fffaa6a6fffaa9a9fffaadadfffbb0b0fffbb4b4fffbb7b7fffbbabafffbbebefffcc1c1fffcc5c5fffcc8c8fffcccccfffccfcffffdd3d3fffdd6d6fffddadafffdddddfffde1e1fffde4e4fffee7e7fffeebebfffeeeeefffef2f2fffef5f5fffff9f9fffffcfcfff32a2afff32a2afff43131fff43838fff43f3ffff54646fff54d4dfff65454fff65b5bfff66262fff76969fff77070fff77777fff87e7efff88484fff98b8bfff99292fff99999fffaa0a0fffaa7a7fffaaeaefffbb5b5fffbbcbcfffcc3c3fffccacafffcd1d1fffdd8d8fffddfdffffde5e5fffeececfffef3f3fffffafafff32a2afff43434fff44242fff55050fff65e5efff76c6cfff77a7afff88787fff99595fffaa3a3fffab1b1fffbbfbffffccdcdfffddbdbfffde8e8fffef6f6fff32f2ffff44949fff66565fff78080fff99c9cfffab8b8fffcd4d4fffdefeffff33c3cfff67272fff9aaaafffce1e1fff45757fffac5c5fff78e8eff
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1001 &1026149646498734801
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5825,7 +6128,7 @@ PrefabInstance:
     - target: {fileID: 8174169364904292256, guid: 76cbd46f016a79d469695dd5845be2a5, type: 3}
       propertyPath: m_ScoreTmp
       value: 
-      objectReference: {fileID: 1644694605}
+      objectReference: {fileID: 1644694607}
     - target: {fileID: 8174169364904292256, guid: 76cbd46f016a79d469695dd5845be2a5, type: 3}
       propertyPath: m_RhythmDirector
       value: 
