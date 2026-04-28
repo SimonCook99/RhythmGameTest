@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e400d222487328348bdc55bb551c1223, type: 3}
   m_Name: DoubleError
   m_EditorClassIdentifier: 
-  Name: Double error
+  Name: Double Error
   description: Ogni 'Bad' o 'Miss' effettuato vale doppio
   sprite: {fileID: 0}
+  isUpgrade: 0
+  isDowngrade: 1

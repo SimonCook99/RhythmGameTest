@@ -22,6 +22,7 @@ public class GameloopManager : MonoBehaviour{
     //eventi per mostrare e aggiornare la UI dei metri di euphoria e counter di errori massimi
     public event EventHandler OnShowEuphoriaUI;
     public event EventHandler OnShowErrorLimitUI;
+    public event EventHandler OnShowBossWarningUI;
     public event Action<float> OnUpdateEuphoriaUI;
     public event Action<int, float> OnUpdateErrorLimitUI;
 
@@ -45,6 +46,8 @@ public class GameloopManager : MonoBehaviour{
 
     [SerializeField] private List<RhythmTimelineAsset> songChartsList; //lista del chart di tutte le canzoni presenti in game
 
+    [SerializeField] private List<RhythmTimelineAsset> bossChartsList; //lista dei chart delle canzoni boss, presenti ogni 5 canzoni 'normali' (anche se è una lista, per adesso il boss è 1)
+    
     [SerializeField] private List<CardUpgradeSO> allUpgradesList; //lista che contiene tutti gli upgrades del gioco, che sarà poi modificata in base alle carte in possesso del giocatore
     [SerializeField] private List<CardDowngradeSO> allDowngradesList; //lista che contiene tutti gli downgrades del gioco, che sarà poi modificata in base alle carte in possesso del giocatore
     [SerializeField] private RhythmDirector rhythmDirector; //il rhythm director che gestisce la timeline del livello attuale
@@ -54,7 +57,7 @@ public class GameloopManager : MonoBehaviour{
 
 
     private List<CardSO> cardToChooseList; //lista che conterrà le carte che il giocatore potrà scegliere al termine della canzone, inizialmente vuota
-    private int currentLevelIndex; //l'indice che aumenterà a fine canzone e regola il livello corrente dalla lista
+    [SerializeField] private int currentLevelIndex; //l'indice che aumenterà a fine canzone e regola il livello corrente dalla lista
     
     /* [SerializeField] */ private bool hasPlayerX2Base = false; //Variabile che monitora se il giocatore ha l'upgrade x2 base, aggiornando il punteggio di conseguenza
     /* [SerializeField] */ private bool hasPlayerX6 = false; //Variabile che monitora se il giocatore ha l'upgrade x6, aggiornando il punteggio di conseguenza
@@ -65,8 +68,8 @@ public class GameloopManager : MonoBehaviour{
     [SerializeField] private ScoreSettings scoreSettingsSO; //file scriptableObject che contiene i punteggi delle varie accuracy, utile per raddoppiare i punti da sottrare in caso di bad o miss col downgrade "Double Error"
     
     [SerializeField] private bool hasEuphoria = false; //Variabile che monitora se il giocatore ha l'upgrade "Euphoria", che raddoppia temporaneamente il moltiplicatore
-    [SerializeField] private float euphoriaDuration = 5f; //contatore della durata dell'effetto di euphoria, che scende da 5 secondi a 0 quando è attiva
-    [SerializeField] private const float euphoriaDurationMax = 5f; //durata dell'effetto di euphoria attiva
+    [SerializeField] private float euphoriaDuration = 7f; //contatore della durata dell'effetto di euphoria, che scende da 7 secondi a 0 quando è attiva
+    [SerializeField] private const float euphoriaDurationMax = 7f; //durata dell'effetto di euphoria attiva
     [SerializeField] private float euphoriaCooldown = 20f; //contatore corrente che scenderà a partire dal valore cooldownMax
     [SerializeField] private const float euphoriaCooldownMax = 20f; //Il giocatore potrà attivarlo dopo almeno 20 secondi
     private bool euphoriaActive = false;
@@ -114,14 +117,12 @@ public class GameloopManager : MonoBehaviour{
 
         playableDirector.stopped += VictoryCheck;
 
-        /* scoreManager.OnBreakChain += HandleBreakChain; */
-
-        scoreManager.OnNoteScore += HandleBreakChainNewEvent;
+        scoreManager.OnNoteScore += HandleBreakChain;
 
         
     }
 
-    private void HandleBreakChainNewEvent(Note note, NoteAccuracy e){
+    private void HandleBreakChain(Note note, NoteAccuracy e){
 
         if(!hasMaxErrorLimit) return; //se non ha il downgrade max error limit, non serve fare controlli aggiuntivi
 
@@ -158,54 +159,12 @@ public class GameloopManager : MonoBehaviour{
 
             //ERRORE SU RhythmMixerBehaviour AL RIGO 18, MA NON SEMBRA ESSERE BLOCCANTE
             rhythmDirector.EndSong();
-            playableDirector.Stop(); //fermo la canzone in corso
+            playableDirector.Pause(); //fermo la canzone in corso
 
             //questo evento serve sia alla UI per mostrare il pannello di gameover, sia al player per svuotare le card in suo possesso
             OnRunEnded?.Invoke(this, EventArgs.Empty);
         }
 
-    }
-
-
-    private void HandleBreakChain(){
-
-        if(!hasMaxErrorLimit) return; //se il giocatore non ha il downgrade del max error limit, non serve fare nulla quando rompe la combo
-
-
-        //VEDI COME INTERCETTARE L'ULTIMA ACCURACY DELLA NOTA (bad o miss) E TOGLIERE IL DOPPIO DEL PUNTEGGIO IN BASE AL POSSESSO DEL DOWNGRADE "Double Error", IN MODO DA FARLO CONTARE ANCHE NEL CALCOLO DEL CONTATORE DEGLI ERRORI, CHE SE ARRIVA A 20 FA SCATTARE IL GAMEOVER
-        /* if(hasDoubleError){
-
-            if(scoreManager.GetAccuracy())
-
-            scoreManager.AddScore(scoreSettingsSO.GetMissAccuracy().score);
-
-            //se il giocatore ha anche il downgrade double error, allora raddoppia la perdita di punti e il contatore degli errori
-            scoreManager.AddScore(-scoreSettingsSO.MissAccuracy.score); //sottraggo i punti come se fosse un miss, ma raddoppiati
-            maxErrorLimitCounter++; //incremento una volta in più il contatore degli errori
-        } else {
-            scoreManager.AddScore(-scoreSettingsSO.BadAccuracyTable[0].score); //sottraggo i punti come se fosse un bad, senza raddoppiarli
-        } */
-        maxErrorLimitCounter++;
-        Debug.Log("Numero di errori: " + maxErrorLimitCounter);
-
-        if(maxErrorLimitCounter >= 20){
-            Debug.Log("Hai raggiunto il limite massimo di errori! Riprova il livello.");
-
-            //reimposto i valori iniziali
-            currentLevelIndex = 0;
-            currentLevelScore = levelScoresList[currentLevelIndex];
-            state = State.Menu;
-            maxErrorLimitCounter = 0;
-            hasMaxErrorLimit = false;
-
-            //ERRORE SU RhythmMixerBehaviour AL RIGO 18, MA NON SEMBRA ESSERE BLOCCANTE
-            rhythmDirector.EndSong();
-            playableDirector.Stop(); //fermo la canzone in corso
-
-            //questo evento serve sia alla UI per mostrare il pannello di gameover, sia al player per svuotare le card in suo possesso
-            OnRunEnded?.Invoke(this, EventArgs.Empty);
-        }
-        
     }
 
     private void VictoryCheck(PlayableDirector director){
@@ -264,10 +223,17 @@ public class GameloopManager : MonoBehaviour{
 
     private void StartGame(object sender, EventArgs e){
 
-        //seleziona un chart iniziale random
-        playableDirector.playableAsset = songChartsList[UnityEngine.Random.Range(0, songChartsList.Count)];
+        //PROBABILMENTE QUANDO IN FUTURO CI SARANNO PIU' CANZONI BOSS, QUESTA CONDIZIONE SARA' CAMBIATO IN CurrentLevelIndex %5 == 0 per indicare di scegliere una canzone random tra quelle boss
+        if(currentLevelIndex == levelScoresList.Count - 1){
+            playableDirector.playableAsset = bossChartsList[UnityEngine.Random.Range(0, bossChartsList.Count)];
+            OnShowBossWarningUI?.Invoke(this, EventArgs.Empty); //chiamo l'evento per mostrare il pannello di warning dell'arrivo del boss
+        }else{
+            //seleziona un chart iniziale random
+            playableDirector.playableAsset = songChartsList[UnityEngine.Random.Range(0, songChartsList.Count)];
+            playableDirector.Play();
+        }
+
 	    scoreManager.SetSong(playableDirector.playableAsset.ConvertTo<RhythmTimelineAsset>());
-        playableDirector.Play();
         state = State.Playing;
 
         List<IEquipable> playerUpgradesList = Player.Instance.GetAllUpgradesList();
@@ -372,6 +338,7 @@ public class GameloopManager : MonoBehaviour{
 
         if(maxErrorLimitCounter != 0){ //resetto il counter di errori in caso sia stato modificato durante la canzone precedente
             maxErrorLimitCounter = 0;
+            OnUpdateErrorLimitUI?.Invoke(maxErrorLimitCounter, maxErrorLimit); //resetto la UI del counter degli errori massimi
         }
 
         if(euphoriaCooldown != euphoriaCooldownMax){ //resetto il contatore di euphoria al suo valore massimo, così che parta vuoto alla prossima canzone
@@ -410,11 +377,15 @@ public class GameloopManager : MonoBehaviour{
 
                 if(hasEuphoria && euphoriaCooldown > 0){
                     euphoriaCooldown -= Time.deltaTime;
+
+                    //passo come parametro alla UI il valore normalizzato da inserire come fillamount della barra (sale pian piano)
                     OnUpdateEuphoriaUI?.Invoke(1 - (euphoriaCooldown / euphoriaCooldownMax));
                 }
 
                 if(euphoriaActive){
                     euphoriaDuration -= Time.deltaTime;
+
+                    //qui il parametro passato alla UI è il valore normalizzato che corrisponde al fillamount che scende da 1 a 0 
                     OnUpdateEuphoriaUI?.Invoke(euphoriaDuration / euphoriaDurationMax);
                     Debug.Log("Durata rimanente di Euphoria: " + euphoriaDuration + " secondi");
                 
@@ -547,10 +518,10 @@ public class GameloopManager : MonoBehaviour{
         return scrollSpeedIncreaseIndex;
     }
 
-    public float GetMaxErrorLimitCounter(){
-        return 20f;
+    //questo metodo viene richiamato dall'UIManager quando deve partire il pannello di warning, e far partire la canzone poco dopo
+    public PlayableDirector GetPlayableDirector(){
+        return playableDirector;
     }
-
 
     private void OnDestroy(){
         UIManager.Instance.OnGameStart -= StartGame;

@@ -16,11 +16,14 @@ public class UIManager : MonoBehaviour{
     [SerializeField] private TextMeshProUGUI scoreBuffText;
     [SerializeField] private GameObject euphoriaBar;
     [SerializeField] private GameObject euphoriaBarMeter;
+    [SerializeField] private GameObject euphoriaButtonInput;
 
 
     [SerializeField] private GameObject errorLimitCounter; //oggetto contenitore principale
     [SerializeField] private GameObject errorLimitCounterMeter; //metro interno del counter, di cui viene modificato il fill amount
     [SerializeField] private TextMeshProUGUI errorLimitCounterText; //testo che mostra il numero di errori attuale
+
+    [SerializeField] private GameObject bossWarningPanel;
 
     public static UIManager Instance {get; private set;}
 
@@ -34,7 +37,10 @@ public class UIManager : MonoBehaviour{
         scoreBuffText.gameObject.SetActive(false);
 
         euphoriaBar.SetActive(false);
+        euphoriaButtonInput.SetActive(false);
         errorLimitCounter.SetActive(false);
+
+        bossWarningPanel.SetActive(false);
 
         Instance = this;
     }
@@ -48,6 +54,8 @@ public class UIManager : MonoBehaviour{
         GameloopManager.Instance.OnShowEuphoriaUI += ShowEuphoriaUI;
         GameloopManager.Instance.OnShowErrorLimitUI += ShowErrorLimitUI;
 
+        GameloopManager.Instance.OnShowBossWarningUI += ShowBossWarningUI;
+
         GameloopManager.Instance.OnUpdateErrorLimitUI += UpdateErrorLimitUI;
 
         GameloopManager.Instance.OnUpdateEuphoriaUI += UpdateEuphoriaUI;
@@ -55,9 +63,26 @@ public class UIManager : MonoBehaviour{
         ScoreChainbuffManager.Instance.OnChainBuffActivated += ShowPointsBoostText;
     }
 
+    private void ShowBossWarningUI(object sender, EventArgs e){
+        bossWarningPanel.SetActive(true);
+    }
+
+    
+    public void HideBossWarningPanel(){
+        bossWarningPanel.SetActive(false);
+
+        GameloopManager.Instance.GetPlayableDirector().Play(); //faccio partire la canzone una volta finita l'animazione del pannello
+    }
+
     //il primo parametro è il countdown attuale, che scende dal timer massimo a 0, il secondo è il timer massimo
     private void UpdateEuphoriaUI(float fillAmount){
         euphoriaBarMeter.GetComponent<RoundedImage>().fillAmount = fillAmount;
+
+        if(fillAmount >= 1f){
+            euphoriaButtonInput.SetActive(true);
+        }else{
+            euphoriaButtonInput.SetActive(false);
+        }
     }
 
 
