@@ -18,10 +18,9 @@ public class CardManagerUI : MonoBehaviour{
     public GameObject cardTemplate; //il temaplate della carta da istanziare e impostare
 
 
-    
-
-
     public static CardManagerUI Instance {get; private set;}
+
+    public event EventHandler OnCardClickSound;
 
     void Awake(){
         cardTemplate.SetActive(false);
@@ -61,6 +60,8 @@ public class CardManagerUI : MonoBehaviour{
             newCard.GetComponent<Button>().onClick.AddListener(() => {
 
                 UIManager.Instance.GetCardChoosingPanel().SetActive(false);
+
+                OnCardClickSound?.Invoke(this, EventArgs.Empty);
 
                 OnPlayerCardsListModified?.Invoke(this, new CardChosenEventArgs{
                     chosenCard = card

@@ -29,6 +29,10 @@ public class GameloopManager : MonoBehaviour{
     public event EventHandler OnSongEndedUI;
     public event EventHandler OnRunEnded;
 
+    public event EventHandler OnCardsAppearSound;
+    public event EventHandler OnEuphoriaActivatedSound;
+    public event EventHandler OnIncreasedMaxErrorLimitSound;
+
     private enum State{
         Menu,
         Playing,
@@ -131,6 +135,7 @@ public class GameloopManager : MonoBehaviour{
 
             maxErrorLimitCounter++;
             OnUpdateErrorLimitUI?.Invoke(maxErrorLimitCounter, maxErrorLimit); //aggiorno la UI del counter degli errori massimi
+            OnIncreasedMaxErrorLimitSound?.Invoke(this, EventArgs.Empty);
             Debug.Log("Numero di errori: " + maxErrorLimitCounter);
 
             if(hasDoubleError){
@@ -174,6 +179,8 @@ public class GameloopManager : MonoBehaviour{
             state = State.ChoosingCard;
 
             cardToChooseList = CreateRandomCards();
+
+            OnCardsAppearSound?.Invoke(this, EventArgs.Empty);
 
 
             OnSongEndedUI?.Invoke(this, EventArgs.Empty);
@@ -403,6 +410,8 @@ public class GameloopManager : MonoBehaviour{
                     if(hasEuphoria && euphoriaCooldown <= 0){
                         euphoriaActive = true; //segno l'euphoria come attiva
                         scoreManager.SetMultiplier(scoreManager.GetMultiplier() * 2); //raddoppia il moltiplicatore attuale
+                        
+                        OnEuphoriaActivatedSound?.Invoke(this, EventArgs.Empty);
                         Debug.Log("Euphoria attivata, moltiplicatore raddoppiato!");
                     }
                 }
@@ -526,5 +535,6 @@ public class GameloopManager : MonoBehaviour{
     private void OnDestroy(){
         UIManager.Instance.OnGameStart -= StartGame;
         playableDirector.stopped -= VictoryCheck;
+        scoreManager.OnNoteScore -= HandleBreakChain;
     }
 }

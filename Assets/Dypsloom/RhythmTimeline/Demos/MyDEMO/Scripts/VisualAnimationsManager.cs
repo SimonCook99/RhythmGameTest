@@ -1,6 +1,8 @@
 using Dypsloom.RhythmTimeline.Core.Managers;
 using UnityEngine;
 
+
+//questo script gestisce le animazioni visive del gioco, con funzioni gestite tramite signal all'interno delle timeline di specifici brani
 public class VisualAnimationsManager : MonoBehaviour{
     
     [SerializeField] private RhythmDirector rhythmDirector;

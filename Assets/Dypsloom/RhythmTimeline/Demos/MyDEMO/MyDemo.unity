@@ -2773,62 +2773,6 @@ Material:
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!1 &814012972
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 814012974}
-  - component: {fileID: 814012973}
-  m_Layer: 0
-  m_Name: UIManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &814012973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 814012972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38ce2109cccbdb4419db5ebb78545c2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  startPanel: {fileID: 2090159665}
-  cardChoosingPanel: {fileID: 32840387}
-  gameOverPanel: {fileID: 911345741}
-  scoreToPassText: {fileID: 1798849862}
-  scoreBuffText: {fileID: 1745487895}
-  euphoriaBar: {fileID: 1568594684}
-  euphoriaBarMeter: {fileID: 0}
-  euphoriaButtonInput: {fileID: 0}
-  errorLimitCounter: {fileID: 1021430056}
-  errorLimitCounterMeter: {fileID: 0}
-  errorLimitCounterText: {fileID: 1523469461}
-  bossWarningPanel: {fileID: 0}
---- !u!4 &814012974
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 814012972}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &899310037
 GameObject:
   m_ObjectHideFlags: 0
@@ -7605,6 +7549,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8611589450627070693, guid: 76cbd46f016a79d469695dd5845be2a5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9021719783595813196}
+    - targetCorrespondingSourceObject: {fileID: 8611589450627070693, guid: 76cbd46f016a79d469695dd5845be2a5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9021719783595813198}
+    - targetCorrespondingSourceObject: {fileID: 8611589450627070693, guid: 76cbd46f016a79d469695dd5845be2a5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9021719783595813197}
   m_SourcePrefab: {fileID: 100100000, guid: 76cbd46f016a79d469695dd5845be2a5, type: 3}
 --- !u!114 &9021719783595813159 stripped
 MonoBehaviour:
@@ -7797,6 +7747,121 @@ MonoBehaviour:
   upInputGameObject: {fileID: 1493999082}
   downInputGameObject: {fileID: 1826597591}
   playerAnimator: {fileID: 1153576685}
+--- !u!114 &9021719783595813197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9021719783595813161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f97328d2e027eb94ea379a12efbb8326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  cardAppearanceSound: {fileID: 8300000, guid: 1716219767d898948b5214baa3f15b3a, type: 3}
+  cardClickSound: {fileID: 8300000, guid: 2e2ba2f6ef0e4c44f8260fc179def63e, type: 3}
+  euphoriaReadySound: {fileID: 8300000, guid: e3d2c39d5fa952b4aa16e861b7127c53, type: 3}
+  euphoriaActivatedSound: {fileID: 8300000, guid: b4dbecfd1420aaa42abfa18876c86cb2, type: 3}
+  maxErrorLimitIncreasedSound: {fileID: 8300000, guid: 4b24acbad0fa555419e3bcfd75429c7d, type: 3}
+  bossWarningSound: {fileID: 8300000, guid: 81c83c1b0f5da8c44bdc2a3baaf47014, type: 3}
+--- !u!82 &9021719783595813198
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9021719783595813161}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: e99521dbbb4b8b9468e14edc00934bee, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.15
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 0
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -7805,7 +7870,6 @@ SceneRoots:
   - {fileID: 1337285583}
   - {fileID: 9021719783595813158}
   - {fileID: 1153576683}
-  - {fileID: 814012974}
   - {fileID: 1026149646498734801}
   - {fileID: 1123875016}
   - {fileID: 433321535}

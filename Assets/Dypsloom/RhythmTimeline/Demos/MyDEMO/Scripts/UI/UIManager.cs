@@ -28,6 +28,10 @@ public class UIManager : MonoBehaviour{
     public static UIManager Instance {get; private set;}
 
     public event EventHandler OnGameStart;
+    public event EventHandler OnEuphoriaReadySound; //evento che sarà intercettato dall'audioMamager
+    public event EventHandler OnStopMenuSound;
+    public event EventHandler OnBossWarningSound;
+    public event EventHandler OnStopPlayingWarningSound;
 
     void Awake(){
         startPanel.SetActive(true);
@@ -65,6 +69,7 @@ public class UIManager : MonoBehaviour{
 
     private void ShowBossWarningUI(object sender, EventArgs e){
         bossWarningPanel.SetActive(true);
+        OnBossWarningSound?.Invoke(this, EventArgs.Empty);
     }
 
     
@@ -80,6 +85,7 @@ public class UIManager : MonoBehaviour{
 
         if(fillAmount >= 1f){
             euphoriaButtonInput.SetActive(true);
+            OnEuphoriaReadySound?.Invoke(this, EventArgs.Empty);
         }else{
             euphoriaButtonInput.SetActive(false);
         }
@@ -134,6 +140,7 @@ public class UIManager : MonoBehaviour{
     public void StartGame(){
         startPanel.SetActive(false);
         gameOverPanel.SetActive(false);
+        OnStopMenuSound?.Invoke(this, EventArgs.Empty); //fermo la musica del menù
         OnGameStart?.Invoke(this, EventArgs.Empty);
     }
 
@@ -171,6 +178,17 @@ public class UIManager : MonoBehaviour{
         GameloopManager.Instance.OnScoreGoalSet -= ShowScoreToPass;
         GameloopManager.Instance.OnSongEndedUI -= ShowCardChoosingPanel;
         GameloopManager.Instance.OnRunEnded -= ShowGameOverPanel;
+
+        GameloopManager.Instance.OnShowEuphoriaUI -= ShowEuphoriaUI;
+        GameloopManager.Instance.OnShowErrorLimitUI -= ShowErrorLimitUI;
+
+        GameloopManager.Instance.OnShowBossWarningUI -= ShowBossWarningUI;
+
+        GameloopManager.Instance.OnUpdateErrorLimitUI -= UpdateErrorLimitUI;
+
+        GameloopManager.Instance.OnUpdateEuphoriaUI -= UpdateEuphoriaUI;
+
+        ScoreChainbuffManager.Instance.OnChainBuffActivated -= ShowPointsBoostText;
     }
 
     public GameObject GetCardChoosingPanel(){
