@@ -31,7 +31,6 @@ public class UIManager : MonoBehaviour{
     public event EventHandler OnEuphoriaReadySound; //evento che sarà intercettato dall'audioMamager
     public event EventHandler OnStopMenuSound;
     public event EventHandler OnBossWarningSound;
-    public event EventHandler OnStopPlayingWarningSound;
 
     void Awake(){
         startPanel.SetActive(true);
