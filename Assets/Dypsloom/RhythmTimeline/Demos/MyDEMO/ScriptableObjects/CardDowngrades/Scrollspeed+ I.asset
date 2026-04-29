@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Scrollspeed+ I
   m_EditorClassIdentifier: 
   Name: Scrollspeed+ I
-  description: "La velocit\xE0 di scorrimento delle note aumenta del 10%"
+  description: Note scrolling speed increases by 10%
   sprite: {fileID: 0}
   isUpgrade: 0
   isDowngrade: 1

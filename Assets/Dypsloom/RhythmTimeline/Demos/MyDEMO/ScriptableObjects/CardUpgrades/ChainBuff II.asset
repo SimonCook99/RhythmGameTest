@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: ChainBuff II
   m_EditorClassIdentifier: 
   Name: Chain Buff II
-  description: Aumenta il boost chain Buff a 1000 punti
+  description: Chain buff boost increases to +1000 points
   sprite: {fileID: 0}
+  isUpgrade: 1
+  isDowngrade: 0

@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: X2Base
   m_EditorClassIdentifier: 
   Name: X2 Base
-  description: "Il moltiplicatore partir\xE0 di base come X2"
+  description: The multiplier will start as X2 by default
   sprite: {fileID: 0}
+  isUpgrade: 1
+  isDowngrade: 0

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: ChainBuff III
   m_EditorClassIdentifier: 
   Name: Chain Buff III
-  description: "Il boost aumenta a 1500, e pu\xF2 aumentare ulteriormente in base
-    al moltiplicatore"
+  description: Chain buff boost increases to 1500, and can further increase based
+    on multiplier
   sprite: {fileID: 0}
+  isUpgrade: 1
+  isDowngrade: 0

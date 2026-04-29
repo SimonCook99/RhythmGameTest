@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Euphoria
   m_EditorClassIdentifier: Assembly-CSharp::CardUpgradeSO
   Name: Euphoria
-  description: "Aggiunge la possibilit\xE0 di un boost che raddoppia temporaneamente
-    il motiplicatore"
+  description: Adds a bar that, once filled, can be used to temporarily double the
+    multiplier
   sprite: {fileID: 0}
+  isUpgrade: 1
+  isDowngrade: 0

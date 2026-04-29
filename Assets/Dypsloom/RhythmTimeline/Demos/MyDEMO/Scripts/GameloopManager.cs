@@ -27,6 +27,8 @@ public class GameloopManager : MonoBehaviour{
     public event Action<int, float> OnUpdateErrorLimitUI;
 
     public event EventHandler OnSongEndedUI;
+    public event EventHandler OnBossDefeatedUI;
+
     public event EventHandler OnRunEnded;
 
     public event EventHandler OnCardsAppearSound;
@@ -175,6 +177,11 @@ public class GameloopManager : MonoBehaviour{
     private void VictoryCheck(PlayableDirector director){
         if(scoreManager.GetScore() >= currentLevelScore.requiredScore){
             Debug.Log("Hai vinto il livello!");
+
+            if(currentLevelIndex == levelScoresList.Count - 1){
+                OnBossDefeatedUI?.Invoke(this, EventArgs.Empty);
+                return;
+            }
 
             state = State.ChoosingCard;
 

@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: X6
   m_EditorClassIdentifier: 
   Name: X6
-  description: "Il moltiplicatore potr\xE0 arrivare fino a un massimo di X6"
+  description: The multiplier can reach up to a maximum of X6
   sprite: {fileID: 0}
+  isUpgrade: 1
+  isDowngrade: 0

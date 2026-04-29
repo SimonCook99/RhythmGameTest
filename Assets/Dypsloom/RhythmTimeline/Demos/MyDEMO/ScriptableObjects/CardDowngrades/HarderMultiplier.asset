@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: HarderMultiplier
   m_EditorClassIdentifier: Assembly-CSharp::CardDowngradeSO
   Name: Harder Multiplier
-  description: Aumenta di 5 il numero di note richiesto per aumentare il moltiplicatore
+  description: Increase the number of notes required to increase the multiplier by
+    5
   sprite: {fileID: 0}
   isUpgrade: 0
   isDowngrade: 1

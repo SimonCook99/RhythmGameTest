@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour{
     [SerializeField] private GameObject gameOverPanel;
 
     [SerializeField] private TextMeshProUGUI scoreToPassText;
+    [SerializeField] private TextMeshProUGUI startCreditSongsText;
 
     [SerializeField] private TextMeshProUGUI scoreBuffText;
     [SerializeField] private GameObject euphoriaBar;
@@ -24,6 +25,7 @@ public class UIManager : MonoBehaviour{
     [SerializeField] private TextMeshProUGUI errorLimitCounterText; //testo che mostra il numero di errori attuale
 
     [SerializeField] private GameObject bossWarningPanel;
+    [SerializeField] private GameObject congratulationsPanel;
 
     public static UIManager Instance {get; private set;}
 
@@ -31,6 +33,7 @@ public class UIManager : MonoBehaviour{
     public event EventHandler OnEuphoriaReadySound; //evento che sarà intercettato dall'audioMamager
     public event EventHandler OnStopMenuSound;
     public event EventHandler OnBossWarningSound;
+    public event EventHandler OnBossDefeatedSound;
 
     void Awake(){
         startPanel.SetActive(true);
@@ -38,12 +41,14 @@ public class UIManager : MonoBehaviour{
         gameOverPanel.SetActive(false);
         
         scoreBuffText.gameObject.SetActive(false);
+        startCreditSongsText.gameObject.SetActive(false);
 
         euphoriaBar.SetActive(false);
         euphoriaButtonInput.SetActive(false);
         errorLimitCounter.SetActive(false);
 
         bossWarningPanel.SetActive(false);
+        congratulationsPanel.SetActive(false);
 
         Instance = this;
     }
@@ -58,12 +63,18 @@ public class UIManager : MonoBehaviour{
         GameloopManager.Instance.OnShowErrorLimitUI += ShowErrorLimitUI;
 
         GameloopManager.Instance.OnShowBossWarningUI += ShowBossWarningUI;
+        GameloopManager.Instance.OnBossDefeatedUI += ShowCongratulationsPanel;
 
         GameloopManager.Instance.OnUpdateErrorLimitUI += UpdateErrorLimitUI;
 
         GameloopManager.Instance.OnUpdateEuphoriaUI += UpdateEuphoriaUI;
 
         ScoreChainbuffManager.Instance.OnChainBuffActivated += ShowPointsBoostText;
+    }
+
+    private void ShowCongratulationsPanel(object sender, EventArgs e){
+        congratulationsPanel.SetActive(true);
+        OnBossDefeatedSound?.Invoke(this, EventArgs.Empty);
     }
 
     private void ShowBossWarningUI(object sender, EventArgs e){
@@ -134,6 +145,11 @@ public class UIManager : MonoBehaviour{
     private void ShowScoreToPass(object sender, GameloopManager.ScoreToPass e){
     
         scoreToPassText.text = "Minimum required: " + e.levelScore.requiredScore.ToString();
+    }
+
+    //funzione chiamata dal tasto Credits del menu principale, che mostra o nasconde il testo dei crediti delle canzoni
+    public void ToggleCreditsText(){
+        startCreditSongsText.gameObject.SetActive(!startCreditSongsText.gameObject.activeSelf);
     }
 
     public void StartGame(){

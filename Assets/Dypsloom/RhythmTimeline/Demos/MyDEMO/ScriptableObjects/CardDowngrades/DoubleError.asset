@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DoubleError
   m_EditorClassIdentifier: 
   Name: Double Error
-  description: Ogni 'Bad' o 'Miss' effettuato vale doppio
+  description: Every 'Bad' or 'Miss' is counted twice
   sprite: {fileID: 0}
   isUpgrade: 0
   isDowngrade: 1

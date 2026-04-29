@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: ChainBuff I
   m_EditorClassIdentifier: 
   Name: Chain Buff I
-  description: Ogni 20 note consecutive aggiungono 500 punti bonus
+  description: +500 points for every 20 consecutive notes
   sprite: {fileID: 0}
+  isUpgrade: 1
+  isDowngrade: 0

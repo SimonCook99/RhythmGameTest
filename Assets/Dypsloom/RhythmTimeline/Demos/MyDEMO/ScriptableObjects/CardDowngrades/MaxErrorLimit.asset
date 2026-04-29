@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: MaxErrorLimit
   m_EditorClassIdentifier: 
   Name: Max Error Limit
-  description: Aggiunge un limite massimo di errori. Gameover con 20 bad o miss nello
-    stesso brano
+  description: Adds a maximum error limit. Gameover with 20 bad or misses in the
+    same song
   sprite: {fileID: 0}
   isUpgrade: 0
   isDowngrade: 1

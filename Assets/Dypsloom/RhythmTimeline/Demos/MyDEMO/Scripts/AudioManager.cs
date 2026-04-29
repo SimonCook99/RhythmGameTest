@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour{
     [SerializeField] private AudioClip euphoriaActivatedSound;
     [SerializeField] private AudioClip maxErrorLimitIncreasedSound;
     [SerializeField] private AudioClip bossWarningSound;
+    [SerializeField] private AudioClip bossDefeatedSound;
 
 
 
@@ -17,6 +18,7 @@ public class AudioManager : MonoBehaviour{
         UIManager.Instance.OnEuphoriaReadySound += PlayEuphoriaReadySound;
         UIManager.Instance.OnStopMenuSound += StopAmbientMusic;
         UIManager.Instance.OnBossWarningSound += PlayBossWarningSound;
+        UIManager.Instance.OnBossDefeatedSound += PlayBossDefeatedSound;
 
         GameloopManager.Instance.OnCardsAppearSound += PlayCardAppearanceSound;
         GameloopManager.Instance.OnEuphoriaActivatedSound += PlayEuphoriaActivatedSound;
@@ -26,8 +28,12 @@ public class AudioManager : MonoBehaviour{
         
     }
 
+    private void PlayBossDefeatedSound(object sender, EventArgs e){
+        AudioSource.PlayClipAtPoint(bossDefeatedSound, Vector3.zero);
+    }
+
     private void PlayBossWarningSound(object sender, EventArgs e){
-        AudioSource.PlayClipAtPoint(bossWarningSound, Vector3.zero, 0.5f);
+        AudioSource.PlayClipAtPoint(bossWarningSound, Vector3.zero);
     }
 
     private void PlayCardClickSound(object sender, EventArgs e){
