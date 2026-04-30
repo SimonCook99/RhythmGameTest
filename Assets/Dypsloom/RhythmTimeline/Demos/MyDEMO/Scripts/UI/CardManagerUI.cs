@@ -47,11 +47,17 @@ public class CardManagerUI : MonoBehaviour{
             newCard.SetActive(true);
 
 
-            //QUI ANDRA' IMPOSTATO ANCHE LO SPRITE ASSOCIATO ALL'UPGRADE
-            /* newCard.GetComponent<Image>().sprite = card.upgrade.sprite; */
+            //se è presente uno sprite per l'upgrade lo imposto nell'angolo della carta, stessa cosa per il downgrade
+            if(card.upgrade.sprite != null){
+
+                newCard.transform.GetChild(0).Find("UpgradeSprite").GetComponent<Image>().sprite = card.upgrade.sprite;
+            }
             newCard.transform.GetChild(0).Find("UpgradeTitle").GetComponent<TextMeshProUGUI>().text = card.upgrade.Name;
             newCard.transform.GetChild(0).Find("UpgradeDescription").GetComponent<TextMeshProUGUI>().text = card.upgrade.description;
-            //QUI ANDRA' IMPOSTATO ANCHE LO SPRITE ASSOCIATO AL DOWNGRADE
+            
+            if(card.downgrade.sprite != null){
+                newCard.transform.GetChild(2).Find("DowngradeSprite").GetComponent<Image>().sprite = card.downgrade.sprite;
+            }
             newCard.transform.GetChild(2).Find("DowngradeTitle").GetComponent<TextMeshProUGUI>().text = card.downgrade.Name;
             newCard.transform.GetChild(2).Find("DowngradeDescription").GetComponent<TextMeshProUGUI>().text = card.downgrade.description;
 

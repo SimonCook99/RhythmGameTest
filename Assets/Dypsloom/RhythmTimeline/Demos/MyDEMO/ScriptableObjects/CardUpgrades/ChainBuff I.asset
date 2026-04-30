@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Chain Buff I
   description: +500 points for every 20 consecutive notes
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 2a7a9e4b27a23ff44a5a5fdf23d1b9a2, type: 3}
   isUpgrade: 1
   isDowngrade: 0

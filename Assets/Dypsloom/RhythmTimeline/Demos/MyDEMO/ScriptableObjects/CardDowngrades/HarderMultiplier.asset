@@ -15,6 +15,6 @@ MonoBehaviour:
   Name: Harder Multiplier
   description: Increase the number of notes required to increase the multiplier by
     5
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 6244416cd7f6de04f820c71363a3e401, type: 3}
   isUpgrade: 0
   isDowngrade: 1

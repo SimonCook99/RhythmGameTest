@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Scrollspeed+ II
   description: Note scrolling speed increases by 30%
-  sprite: {fileID: 0}
+  sprite: {fileID: -4346244404228752641, guid: 62e9f0a690b1c2e4485116e005b4c40a, type: 3}
   isUpgrade: 0
   isDowngrade: 1

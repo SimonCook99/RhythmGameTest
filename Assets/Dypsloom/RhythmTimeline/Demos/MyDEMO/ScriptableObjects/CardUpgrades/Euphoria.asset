@@ -15,6 +15,6 @@ MonoBehaviour:
   Name: Euphoria
   description: Adds a bar that, once filled, can be used to temporarily double the
     multiplier
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 0e924ed4230a87d4eaf57376a3e64595, type: 3}
   isUpgrade: 1
   isDowngrade: 0

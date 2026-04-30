@@ -15,6 +15,6 @@ MonoBehaviour:
   Name: Chain Buff III
   description: Chain buff boost increases to 1500, and can further increase based
     on multiplier
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f4c649795dd97284f9c56d239ff45e42, type: 3}
   isUpgrade: 1
   isDowngrade: 0
