@@ -50,6 +50,11 @@ public class UIManager : MonoBehaviour{
         bossWarningPanel.SetActive(false);
         congratulationsPanel.SetActive(false);
 
+        if(Instance != null && Instance != this){
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
     }
 
@@ -131,11 +136,11 @@ public class UIManager : MonoBehaviour{
     }
 
     private void ShowGameOverPanel(object sender, EventArgs e){
-        gameOverPanel.SetActive(true);
+        gameOverPanel?.SetActive(true);
     }
 
     private void ShowCardChoosingPanel(object sender, EventArgs e){
-        cardChoosingPanel.SetActive(true);
+        cardChoosingPanel?.SetActive(true);
 
         //chiamo il metodo in CardManagerUI che si occupa di ricavare le carte e mostrarle seguendo il template
         CardManagerUI.Instance.ShowCards();
