@@ -194,6 +194,10 @@ public class UIManager : MonoBehaviour{
         SceneManager.LoadScene(currentScene);
     }
 
+    public void Quit(){
+        Application.Quit();
+    }
+
     private void OnDestroy(){
         GameloopManager.Instance.OnScoreGoalSet -= ShowScoreToPass;
         GameloopManager.Instance.OnSongEndedUI -= ShowCardChoosingPanel;
