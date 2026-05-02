@@ -1,5 +1,13 @@
 fileFormatVersion: 2
 guid: e3d2c39d5fa952b4aa16e861b7127c53
+AssetOrigin:
+  serializedVersion: 1
+  productId: 220084
+  packageName: Game Makers Sound Effects Kit Part 1
+  packageVersion: 1.0
+  assetPath: Assets/Game Makers Sound Effects Kit Part 1/Ambient Game/Power Ups and
+    Downs/Ambient_Game_Super_Charge_Power_Up_Booster_1.wav
+  uploadId: 680559
 AudioImporter:
   externalObjects: {}
   serializedVersion: 8
@@ -11,7 +19,7 @@ AudioImporter:
     compressionFormat: 1
     quality: 1
     conversionMode: 0
-    preloadAudioData: 0
+    preloadAudioData: 1
   platformSettingOverrides: {}
   forceToMono: 0
   normalize: 1
@@ -21,11 +29,3 @@ AudioImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 220084
-  packageName: Game Makers Sound Effects Kit Part 1
-  packageVersion: 1.0
-  assetPath: Assets/Game Makers Sound Effects Kit Part 1/Ambient Game/Power Ups and
-    Downs/Ambient_Game_Super_Charge_Power_Up_Booster_1.wav
-  uploadId: 680559

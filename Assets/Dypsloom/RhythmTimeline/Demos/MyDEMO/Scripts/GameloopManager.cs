@@ -358,6 +358,7 @@ public class GameloopManager : MonoBehaviour{
         if(euphoriaCooldown != euphoriaCooldownMax){ //resetto il contatore di euphoria al suo valore massimo, così che parta vuoto alla prossima canzone
             euphoriaCooldown = euphoriaCooldownMax;
             euphoriaDuration = euphoriaDurationMax;
+            euphoriaActive = false;
         }
 
         //in caso il giocatore abbia scelto un'upgrade che aggiorni la UI di gioco, chiamo il suo evento dedicato
