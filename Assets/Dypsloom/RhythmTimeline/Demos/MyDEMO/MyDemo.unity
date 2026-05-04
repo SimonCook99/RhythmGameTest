@@ -2614,7 +2614,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2469149889996566922, guid: b845ddf9558de04429c394e9fdb52dad, type: 3}
   m_PrefabInstance: {fileID: 1493999081}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1493999082}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6a7d2cd54da4819a5d9b4fbc22b8533, type: 3}
@@ -3466,7 +3466,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2469149889996566922, guid: b845ddf9558de04429c394e9fdb52dad, type: 3}
   m_PrefabInstance: {fileID: 1358275683}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1358275684}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6a7d2cd54da4819a5d9b4fbc22b8533, type: 3}
@@ -5261,11 +5261,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b845ddf9558de04429c394e9fdb52dad, type: 3}
---- !u!1 &1358275684 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3035255184079702933, guid: b845ddf9558de04429c394e9fdb52dad, type: 3}
-  m_PrefabInstance: {fileID: 1358275683}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1379568629
 GameObject:
   m_ObjectHideFlags: 0
@@ -5958,11 +5953,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b845ddf9558de04429c394e9fdb52dad, type: 3}
---- !u!1 &1493999082 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3035255184079702933, guid: b845ddf9558de04429c394e9fdb52dad, type: 3}
-  m_PrefabInstance: {fileID: 1493999081}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1523469459
 GameObject:
   m_ObjectHideFlags: 0
@@ -6105,7 +6095,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2469149889996566922, guid: b845ddf9558de04429c394e9fdb52dad, type: 3}
   m_PrefabInstance: {fileID: 8611321114974177921}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8611321114974177922}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6a7d2cd54da4819a5d9b4fbc22b8533, type: 3}
@@ -6501,7 +6491,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2469149889996566922, guid: b845ddf9558de04429c394e9fdb52dad, type: 3}
   m_PrefabInstance: {fileID: 1826597590}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1826597591}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6a7d2cd54da4819a5d9b4fbc22b8533, type: 3}
@@ -7122,11 +7112,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b845ddf9558de04429c394e9fdb52dad, type: 3}
---- !u!1 &1826597591 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3035255184079702933, guid: b845ddf9558de04429c394e9fdb52dad, type: 3}
-  m_PrefabInstance: {fileID: 1826597590}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1843436191
 GameObject:
   m_ObjectHideFlags: 0
@@ -7994,7 +7979,7 @@ PrefabInstance:
     - target: {fileID: 3321798695791371657, guid: 5496413cdab4af54d9672da7e5d92b03, type: 3}
       propertyPath: m_PlayableAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 39e3b63a270433c488b06eb48eb600ca, type: 2}
+      objectReference: {fileID: 11400000, guid: fd675d6e782807b49a20cd1458dc6052, type: 2}
     - target: {fileID: 3321798695791371657, guid: 5496413cdab4af54d9672da7e5d92b03, type: 3}
       propertyPath: m_SceneBindings.Array.size
       value: 64
@@ -8205,11 +8190,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b845ddf9558de04429c394e9fdb52dad, type: 3}
---- !u!1 &8611321114974177922 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3035255184079702933, guid: b845ddf9558de04429c394e9fdb52dad, type: 3}
-  m_PrefabInstance: {fileID: 8611321114974177921}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9021719783595813158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8698,6 +8678,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: de3ad3e3785802943b72ff6c9055ba3d, type: 2}
     - {fileID: 11400000, guid: 5168056de31557e479c5bddc0bb0ea9c, type: 2}
     - {fileID: 11400000, guid: 7614f68b000746e4885257c2dc162907, type: 2}
+    - {fileID: 11400000, guid: 90131be69fffa7345b33a15a4ff86966, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -8741,6 +8722,20 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9021719783595813196}
+          m_TargetAssemblyTypeName: VisualAnimationsManager, Assembly-CSharp
+          m_MethodName: DecreaseSpeedSignal
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &9021719783595813196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8754,10 +8749,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VisualAnimationsManager
   rhythmDirector: {fileID: 1598496906}
-  leftInputGameObject: {fileID: 8611321114974177922}
-  rightInputGameObject: {fileID: 1358275684}
-  upInputGameObject: {fileID: 1493999082}
-  downInputGameObject: {fileID: 1826597591}
   playerAnimator: {fileID: 1153576685}
 --- !u!114 &9021719783595813197
 MonoBehaviour:
@@ -8778,6 +8769,7 @@ MonoBehaviour:
   maxErrorLimitIncreasedSound: {fileID: 8300000, guid: 4b24acbad0fa555419e3bcfd75429c7d, type: 3}
   bossWarningSound: {fileID: 8300000, guid: 81c83c1b0f5da8c44bdc2a3baaf47014, type: 3}
   bossDefeatedSound: {fileID: 8300000, guid: 1c85af63e7e354d4bac0d0cb333f781b, type: 3}
+  mainMixer: {fileID: 24100000, guid: 656b1462e1c672445af288a338698670, type: 2}
 --- !u!82 &9021719783595813198
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8787,7 +8779,7 @@ AudioSource:
   m_GameObject: {fileID: 9021719783595813161}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 656b1462e1c672445af288a338698670, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: e99521dbbb4b8b9468e14edc00934bee, type: 3}
   m_PlayOnAwake: 1

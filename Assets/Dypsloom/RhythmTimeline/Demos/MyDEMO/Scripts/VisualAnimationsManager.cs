@@ -7,12 +7,6 @@ public class VisualAnimationsManager : MonoBehaviour{
     
     [SerializeField] private RhythmDirector rhythmDirector;
 
-
-    [SerializeField] private GameObject leftInputGameObject;
-    [SerializeField] private GameObject rightInputGameObject;
-    [SerializeField] private GameObject upInputGameObject;
-    [SerializeField] private GameObject downInputGameObject;
-
     [SerializeField] private Animator playerAnimator;
 
     void Start(){
@@ -23,6 +17,10 @@ public class VisualAnimationsManager : MonoBehaviour{
     //funziona che verrà chiamata dal signal che aumenterà la velocità del 20% in momenti specifici della canzone
     public void IncreaseSpeedSignal(){
         rhythmDirector.SetNoteSpeed(rhythmDirector.GetNoteSpeed() * 1.2f);
+    }
+
+    public void DecreaseSpeedSignal(){
+        rhythmDirector.SetNoteSpeed(rhythmDirector.GetNoteSpeed() / 1.2f);
     }
 
 

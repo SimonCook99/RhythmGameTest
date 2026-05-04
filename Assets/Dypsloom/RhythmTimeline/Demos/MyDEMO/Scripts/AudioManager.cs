@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour{
 
@@ -10,6 +12,8 @@ public class AudioManager : MonoBehaviour{
     [SerializeField] private AudioClip maxErrorLimitIncreasedSound;
     [SerializeField] private AudioClip bossWarningSound;
     [SerializeField] private AudioClip bossDefeatedSound;
+
+    [SerializeField] private AudioMixer mainMixer;
 
 
 
@@ -33,7 +37,15 @@ public class AudioManager : MonoBehaviour{
     }
 
     private void PlayBossWarningSound(object sender, EventArgs e){
-        AudioSource.PlayClipAtPoint(bossWarningSound, Vector3.zero);
+        AudioSource.PlayClipAtPoint(bossWarningSound, Vector3.zero, 6f);
+        mainMixer.SetFloat("MainVolume", 10f);
+
+        StartCoroutine(ResetVolume());
+    }
+
+    private IEnumerator ResetVolume(){
+        yield return new WaitForSeconds(3f);
+        mainMixer.SetFloat("MainVolume", 0f);
     }
 
     private void PlayCardClickSound(object sender, EventArgs e){
@@ -42,7 +54,7 @@ public class AudioManager : MonoBehaviour{
 
     private void PlayMaxErrorLimitSound(object sender, EventArgs e){
         Debug.Log("Suono aumento limite errori");
-        AudioSource.PlayClipAtPoint(maxErrorLimitIncreasedSound, Vector3.zero, 3f);
+        AudioSource.PlayClipAtPoint(maxErrorLimitIncreasedSound, Vector3.zero, 4f);
     }
     
     private void PlayEuphoriaActivatedSound(object sender, EventArgs e){
