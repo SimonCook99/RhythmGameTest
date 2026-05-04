@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UIElements;
 
 public class AudioManager : MonoBehaviour{
 
@@ -36,16 +37,14 @@ public class AudioManager : MonoBehaviour{
         AudioSource.PlayClipAtPoint(bossDefeatedSound, Vector3.zero);
     }
 
+    //creo un oggetto temporaneo che riproduce il suono e poi viene distrutto
     private void PlayBossWarningSound(object sender, EventArgs e){
-        AudioSource.PlayClipAtPoint(bossWarningSound, Vector3.zero, 6f);
-        mainMixer.SetFloat("MainVolume", 10f);
+        GameObject warningSoundGameobject = new GameObject("warningSoundGameobject");
+        AudioSource source = warningSoundGameobject.AddComponent<AudioSource>();
+        source.clip = bossWarningSound;
+        source.PlayOneShot(bossWarningSound, 0.5f);
 
-        StartCoroutine(ResetVolume());
-    }
-
-    private IEnumerator ResetVolume(){
-        yield return new WaitForSeconds(3f);
-        mainMixer.SetFloat("MainVolume", 0f);
+        Destroy(warningSoundGameobject, bossWarningSound.length);
     }
 
     private void PlayCardClickSound(object sender, EventArgs e){
