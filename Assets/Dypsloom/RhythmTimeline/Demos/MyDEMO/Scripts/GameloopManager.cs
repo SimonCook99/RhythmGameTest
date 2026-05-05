@@ -23,6 +23,7 @@ public class GameloopManager : MonoBehaviour{
     public event EventHandler OnShowEuphoriaUI;
     public event EventHandler OnShowErrorLimitUI;
     public event EventHandler OnShowBossWarningUI;
+    public event EventHandler OnShowPausePanelUI;
     public event Action<float> OnUpdateEuphoriaUI;
     public event Action<int, float> OnUpdateErrorLimitUI;
 
@@ -38,6 +39,7 @@ public class GameloopManager : MonoBehaviour{
     private enum State{
         Menu,
         Playing,
+        Pause,
         ChoosingCard
     }
 
@@ -125,7 +127,16 @@ public class GameloopManager : MonoBehaviour{
 
         scoreManager.OnNoteScore += HandleBreakChain;
 
+        PausePanelUI.instance.OnResumeGame += ResumeGame;
+
         
+    }
+
+    private void ResumeGame(object sender, EventArgs e){
+        state = State.Playing;
+        Time.timeScale = 1;
+        AudioListener.pause = false;
+        rhythmDirector.UnPause();
     }
 
     private void HandleBreakChain(Note note, NoteAccuracy e){
@@ -433,6 +444,17 @@ public class GameloopManager : MonoBehaviour{
                     VictoryCheck(playableDirector);
                 }
 
+                //gestione di cambio stato in pausa
+                if(Keyboard.current.escapeKey.wasPressedThisFrame || Keyboard.current.enterKey.wasPressedThisFrame){
+                    state = State.Pause;
+                    OnShowPausePanelUI?.Invoke(this, EventArgs.Empty);
+                }
+
+                break;
+            case State.Pause:
+                Time.timeScale = 0;
+                AudioListener.pause = true;
+                rhythmDirector.Pause();
                 break;
             case State.ChoosingCard:
                 //logica di scelta carta

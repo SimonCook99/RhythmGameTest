@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour{
 
     [SerializeField] private GameObject startPanel;
     [SerializeField] private GameObject cardChoosingPanel;
+    [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject gameOverPanel;
 
     [SerializeField] private TextMeshProUGUI scoreToPassText;
@@ -39,6 +40,7 @@ public class UIManager : MonoBehaviour{
         startPanel.SetActive(true);
         cardChoosingPanel.SetActive(false);
         gameOverPanel.SetActive(false);
+        pausePanel.SetActive(false);
         
         scoreBuffText.gameObject.SetActive(false);
         startCreditSongsText.gameObject.SetActive(false);
@@ -67,6 +69,8 @@ public class UIManager : MonoBehaviour{
         GameloopManager.Instance.OnShowEuphoriaUI += ShowEuphoriaUI;
         GameloopManager.Instance.OnShowErrorLimitUI += ShowErrorLimitUI;
 
+        GameloopManager.Instance.OnShowPausePanelUI += ShowPausePanelUI;
+
         GameloopManager.Instance.OnShowBossWarningUI += ShowBossWarningUI;
         GameloopManager.Instance.OnBossDefeatedUI += ShowCongratulationsPanel;
 
@@ -75,6 +79,11 @@ public class UIManager : MonoBehaviour{
         GameloopManager.Instance.OnUpdateEuphoriaUI += UpdateEuphoriaUI;
 
         ScoreChainbuffManager.Instance.OnChainBuffActivated += ShowPointsBoostText;
+    }
+
+    private void ShowPausePanelUI(object sender, EventArgs e){
+        //pausePanel.transform.localScale = Vector3.one;
+        pausePanel.SetActive(true);
     }
 
     private void ShowCongratulationsPanel(object sender, EventArgs e){
