@@ -62,6 +62,11 @@ public class Player : MonoBehaviour
         return allDownGradesList;
     }
 
+    //funzione richiamata dal pannello yourCardsPanel per mostrare le carte attualmente in possesso del giocatore
+    public List<CardSO> GetCardsList(){
+        return playerCardsList;
+    }
+
     private void OnDestroy(){
         CardManagerUI.Instance.OnPlayerCardsListModified -= UpdatePlayerCardsList;
     }

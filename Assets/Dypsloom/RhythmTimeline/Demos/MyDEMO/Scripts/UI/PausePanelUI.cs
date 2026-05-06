@@ -8,15 +8,19 @@ public class PausePanelUI : MonoBehaviour{
     
     [SerializeField] private Button resumeButton;
     [SerializeField] private Button yourCardsButton;
+    [SerializeField] private GameObject yourCardsPanel;
     [SerializeField] private Button backToMenuButton;
     [SerializeField] private TextMeshProUGUI countdownTextUI;
 
-    public event EventHandler OnResumeGame;
     private bool hasResumed;
 
     private float resumeTimer;
 
     public static PausePanelUI instance;
+
+    public event EventHandler OnResumeGame;
+    public event EventHandler OnShowYourCardsUI;
+
 
 
     private void Awake(){
@@ -24,9 +28,20 @@ public class PausePanelUI : MonoBehaviour{
         resumeTimer = 3f;
         hasResumed = false;
 
+        //non posso disattivare yorCardsPanel altrimenti la prima volta che lo chiamo non ascolta l'evento
+        //quindiinizialmente è attivo con lo scale a 0 e poi viene portato a 1 quando viene cliccato il tasto
+        yourCardsPanel.SetActive(true);
+        yourCardsPanel.transform.localScale = Vector3.zero;
+
         resumeButton.onClick.AddListener(ResumeGame);
+        yourCardsButton.onClick.AddListener(ShowYourCardsPanel);
 
         instance = this;
+    }
+
+    private void ShowYourCardsPanel(){
+        yourCardsPanel.transform.localScale = Vector3.one;
+        OnShowYourCardsUI?.Invoke(this, EventArgs.Empty);
     }
 
     private void Update(){
