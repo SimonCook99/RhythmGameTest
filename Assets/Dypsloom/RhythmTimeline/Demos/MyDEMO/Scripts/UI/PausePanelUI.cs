@@ -16,6 +16,9 @@ public class PausePanelUI : MonoBehaviour{
 
     private float resumeTimer;
 
+    private CanvasGroup canvasGroup; //canvas group del pannello di pausa
+    private CanvasGroup yourCardsPanelCanvasGroup; //canvas group del pannello yourCards
+
     public static PausePanelUI instance;
 
     public event EventHandler OnResumeGame;
@@ -27,11 +30,14 @@ public class PausePanelUI : MonoBehaviour{
 
         resumeTimer = 3f;
         hasResumed = false;
+        canvasGroup = GetComponent<CanvasGroup>();
 
         //non posso disattivare yorCardsPanel altrimenti la prima volta che lo chiamo non ascolta l'evento
-        //quindiinizialmente è attivo con lo scale a 0 e poi viene portato a 1 quando viene cliccato il tasto
-        yourCardsPanel.SetActive(true);
-        yourCardsPanel.transform.localScale = Vector3.zero;
+        //quindi prendo il suo canvasGroup e lo disattivo da lì, e lo riattivo nella funzione ShowYourCardsPanel
+        yourCardsPanelCanvasGroup = yourCardsPanel.GetComponent<CanvasGroup>();
+        yourCardsPanelCanvasGroup.alpha = 0;
+        yourCardsPanelCanvasGroup.interactable = false;
+        yourCardsPanelCanvasGroup.blocksRaycasts = false;
 
         resumeButton.onClick.AddListener(ResumeGame);
         yourCardsButton.onClick.AddListener(ShowYourCardsPanel);
@@ -40,7 +46,10 @@ public class PausePanelUI : MonoBehaviour{
     }
 
     private void ShowYourCardsPanel(){
-        yourCardsPanel.transform.localScale = Vector3.one;
+        yourCardsPanelCanvasGroup.alpha = 1;
+        yourCardsPanelCanvasGroup.interactable = true;
+        yourCardsPanelCanvasGroup.blocksRaycasts = true;
+        
         OnShowYourCardsUI?.Invoke(this, EventArgs.Empty);
     }
 
@@ -48,7 +57,10 @@ public class PausePanelUI : MonoBehaviour{
         if(hasResumed){
             countdownTextUI.gameObject.SetActive(true);
 
-            transform.localScale = Vector3.zero;
+            //rendo invisibile il pannello di pausa
+            canvasGroup.alpha = 0;
+            canvasGroup.interactable = false;
+            canvasGroup.blocksRaycasts = false;
 
             resumeTimer -= Time.unscaledDeltaTime;
             Debug.Log("Dovrebbe ora incrementare il timer, timer: " + resumeTimer);
@@ -61,8 +73,6 @@ public class PausePanelUI : MonoBehaviour{
                 countdownTextUI.gameObject.SetActive(false);
                 resumeTimer = 3f;
                 hasResumed = false;
-                transform.localScale = Vector3.one;
-                gameObject.SetActive(false);
 
             }
         }

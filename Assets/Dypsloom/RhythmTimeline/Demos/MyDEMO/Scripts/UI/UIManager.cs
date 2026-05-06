@@ -36,11 +36,21 @@ public class UIManager : MonoBehaviour{
     public event EventHandler OnBossWarningSound;
     public event EventHandler OnBossDefeatedSound;
 
+
+    //il componente canvcasGroup permette tramite il parametro alpha, di nascondere e mostrare il pannello all'occorrenza senza disattivarlo dalla scena, evitando nullReference
+    private CanvasGroup pausePanelCanvasGroup;
+
     void Awake(){
         startPanel.SetActive(true);
         cardChoosingPanel.SetActive(false);
         gameOverPanel.SetActive(false);
-        pausePanel.SetActive(false);
+        
+        pausePanelCanvasGroup = pausePanel.GetComponent<CanvasGroup>();
+
+        //rendo inattivo il pannello di pausa
+        pausePanelCanvasGroup.alpha = 0;
+        pausePanelCanvasGroup.interactable = false;
+        pausePanelCanvasGroup.blocksRaycasts = false;
         
         scoreBuffText.gameObject.SetActive(false);
         startCreditSongsText.gameObject.SetActive(false);
@@ -82,8 +92,10 @@ public class UIManager : MonoBehaviour{
     }
 
     private void ShowPausePanelUI(object sender, EventArgs e){
-        //pausePanel.transform.localScale = Vector3.one;
-        pausePanel.SetActive(true);
+        //rendo visibile il pannello di pausa tramite canvasGroup
+        pausePanelCanvasGroup.alpha = 1;
+        pausePanelCanvasGroup.interactable = true;
+        pausePanelCanvasGroup.blocksRaycasts = true;
     }
 
     private void ShowCongratulationsPanel(object sender, EventArgs e){

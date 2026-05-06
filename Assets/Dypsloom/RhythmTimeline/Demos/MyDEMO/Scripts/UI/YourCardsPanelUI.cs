@@ -14,8 +14,13 @@ public class YourCardsPanelUI : MonoBehaviour{
     [SerializeField] private Button backToPauseButton;
 
     private void Awake(){
+
+        CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
+
         backToPauseButton.onClick.AddListener(() => {
-            gameObject.transform.localScale = Vector3.zero;
+            canvasGroup.alpha = 0;
+            canvasGroup.interactable = false;
+            canvasGroup.blocksRaycasts = false;
         });
 
         cardTemplate.SetActive(false);

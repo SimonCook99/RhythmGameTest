@@ -437,17 +437,16 @@ public class GameloopManager : MonoBehaviour{
 
                 //DEBUG RAPIDO PER TERMINARE LA CANZONE NON APPENA SI RAGGIUNGE L'OBIETTIVO IN PUNTI
                 //DA RIMUOVERE
-                if(Keyboard.current.pKey.wasPressedThisFrame){
+                /* if(Keyboard.current.pKey.wasPressedThisFrame){
                     scoreManager.AddScore(currentLevelScore.requiredScore);
                     rhythmDirector.EndSong();
                     playableDirector.Stop();
                     VictoryCheck(playableDirector);
-                }
+                } */
 
                 //gestione di cambio stato in pausa
                 if(Keyboard.current.escapeKey.wasPressedThisFrame || Keyboard.current.enterKey.wasPressedThisFrame){
-                    state = State.Pause;
-                    OnShowPausePanelUI?.Invoke(this, EventArgs.Empty);
+                    PauseGame();
                 }
 
                 break;
@@ -460,9 +459,18 @@ public class GameloopManager : MonoBehaviour{
                 //logica di scelta carta
                 break;
         }
+    }
 
-        
-        
+
+    //funzione pubblica inserita nel bottone di pausa
+    //(Volevo usare UIManager, ma GameloopManager è l'unico che può cambiare effettivamente lo stato e mettere in pausa)
+    public void PauseGame(){
+
+        //mi assicuro che il tasto funzioni solo quando il giocatore sta in play (e non ad esempio mentre sceglie la carta)
+        if(state == State.Playing){
+            state = State.Pause;
+            OnShowPausePanelUI?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     //funzione messa nell'inspector, nello score event receiver script
