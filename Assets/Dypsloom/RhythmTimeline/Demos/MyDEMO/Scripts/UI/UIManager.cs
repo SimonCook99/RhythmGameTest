@@ -43,7 +43,7 @@ public class UIManager : MonoBehaviour{
     void Awake(){
         startPanel.SetActive(true);
         cardChoosingPanel.SetActive(false);
-        gameOverPanel.SetActive(false);
+        /* gameOverPanel.SetActive(false); */
         
         pausePanelCanvasGroup = pausePanel.GetComponent<CanvasGroup>();
 
@@ -157,7 +157,11 @@ public class UIManager : MonoBehaviour{
     }
 
     private void ShowGameOverPanel(object sender, EventArgs e){
-        gameOverPanel?.SetActive(true);
+        /* gameOverPanel?.SetActive(true); */
+        CanvasGroup gameoverCanvasGroup = gameOverPanel.GetComponent<CanvasGroup>();
+        gameoverCanvasGroup.alpha = 1;
+        gameoverCanvasGroup.interactable = true;
+        gameoverCanvasGroup.blocksRaycasts = true;
     }
 
     private void ShowCardChoosingPanel(object sender, EventArgs e){
@@ -180,7 +184,7 @@ public class UIManager : MonoBehaviour{
 
     public void StartGame(){
         startPanel.SetActive(false);
-        gameOverPanel.SetActive(false);
+        /* gameOverPanel.SetActive(false); */
         OnStopMenuSound?.Invoke(this, EventArgs.Empty); //fermo la musica del menù
         OnGameStart?.Invoke(this, EventArgs.Empty);
     }
@@ -208,9 +212,11 @@ public class UIManager : MonoBehaviour{
     }
 
     public void BackToMainMenu(){
-        /* startPanel.SetActive(true);
-        cardChoosingPanel.SetActive(false);
-        gameOverPanel.SetActive(false); */
+        /* CanvasGroup gameoverCanvasGroup = gameOverPanel.GetComponent<CanvasGroup>();
+        gameoverCanvasGroup.alpha = 0;
+        gameoverCanvasGroup.interactable = false;
+        gameoverCanvasGroup.blocksRaycasts = false; */
+
         var currentScene = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentScene);
     }
@@ -227,11 +233,14 @@ public class UIManager : MonoBehaviour{
         GameloopManager.Instance.OnShowEuphoriaUI -= ShowEuphoriaUI;
         GameloopManager.Instance.OnShowErrorLimitUI -= ShowErrorLimitUI;
 
-        GameloopManager.Instance.OnShowBossWarningUI -= ShowBossWarningUI;
+        GameloopManager.Instance.OnShowPausePanelUI -= ShowPausePanelUI;
 
-        GameloopManager.Instance.OnUpdateErrorLimitUI -= UpdateErrorLimitUI;
+        GameloopManager.Instance.OnShowBossWarningUI -= ShowBossWarningUI;
+        GameloopManager.Instance.OnBossDefeatedUI += ShowCongratulationsPanel;
 
         GameloopManager.Instance.OnUpdateEuphoriaUI -= UpdateEuphoriaUI;
+
+        GameloopManager.Instance.OnUpdateErrorLimitUI -= UpdateErrorLimitUI;
 
         ScoreChainbuffManager.Instance.OnChainBuffActivated -= ShowPointsBoostText;
     }

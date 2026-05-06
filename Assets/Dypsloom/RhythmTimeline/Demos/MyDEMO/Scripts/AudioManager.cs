@@ -30,6 +30,9 @@ public class AudioManager : MonoBehaviour{
         GameloopManager.Instance.OnIncreasedMaxErrorLimitSound += PlayMaxErrorLimitSound;
 
         CardManagerUI.Instance.OnCardClickSound += PlayCardClickSound;
+
+        //in caso di back to menù dalla schermata di pausa, mi assicuro che al ricaricamento della scena, l'audio riprenda normalmente alla schermata iniziale
+        AudioListener.pause = false;
         
     }
 

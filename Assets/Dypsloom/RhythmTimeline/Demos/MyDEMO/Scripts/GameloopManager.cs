@@ -248,6 +248,9 @@ public class GameloopManager : MonoBehaviour{
 
     private void StartGame(object sender, EventArgs e){
 
+        //mi assicuro che a inizio brano, il timescale sia a 1 per mostrare correttamente le accuracy delle note
+        Time.timeScale = 1;
+
         //PROBABILMENTE QUANDO IN FUTURO CI SARANNO PIU' CANZONI BOSS, QUESTA CONDIZIONE SARA' CAMBIATO IN CurrentLevelIndex %5 == 0 per indicare di scegliere una canzone random tra quelle boss
         if(currentLevelIndex == levelScoresList.Count - 1){
             playableDirector.playableAsset = bossChartsList[UnityEngine.Random.Range(0, bossChartsList.Count)];
