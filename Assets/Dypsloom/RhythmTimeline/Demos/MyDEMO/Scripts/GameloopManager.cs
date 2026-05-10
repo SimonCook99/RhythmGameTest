@@ -105,6 +105,8 @@ public class GameloopManager : MonoBehaviour{
     private int maxErrorLimitCounter = 0; //contatore che conterà il numero di volte in cui il giocatore romperà la combo con un bad o miss, arrivato a 20 sarà gameover
 
 
+    [SerializeField] private DifficultyAmountSO difficultyAmountSO;
+
     public static GameloopManager Instance {get; private set;}
 
     
@@ -121,6 +123,8 @@ public class GameloopManager : MonoBehaviour{
 
     void Start(){
 
+        UIManager.Instance.OnDifficultyChanged += ChangeDifficulty;
+
         UIManager.Instance.OnGameStart += StartGame;
 
         playableDirector.stopped += VictoryCheck;
@@ -129,7 +133,36 @@ public class GameloopManager : MonoBehaviour{
 
         PausePanelUI.instance.OnResumeGame += ResumeGame;
 
-        
+    }
+
+    private void ChangeDifficulty(object sender, EventArgs e){
+        switch(difficultyAmountSO.difficultyAmount){
+            case 2:
+                levelScoresList[0].requiredScore = 45000;
+                levelScoresList[1].requiredScore = 60000;
+                levelScoresList[2].requiredScore = 80000;
+                levelScoresList[3].requiredScore = 100000;
+                levelScoresList[4].requiredScore = 180000;
+                maxErrorLimit = 30f;
+            break;
+            case 3:
+                levelScoresList[0].requiredScore = 100000;
+                levelScoresList[1].requiredScore = 150000;
+                levelScoresList[2].requiredScore = 220000;
+                levelScoresList[3].requiredScore = 300000;
+                levelScoresList[4].requiredScore = 555555;
+                maxErrorLimit = 20f;
+            break;
+
+            default: //difficoltà 0 e 1 sono uguali di punteggio. La differenza è che con 0, il giocatore può premere P per skippare la canzone
+                levelScoresList[0].requiredScore = 15000;
+                levelScoresList[1].requiredScore = 25000;
+                levelScoresList[2].requiredScore = 40000;
+                levelScoresList[3].requiredScore = 60000;
+                levelScoresList[4].requiredScore = 80000;
+                maxErrorLimit = 50f; //aumento il numero massimo di errori concessi per le difficoltà più basse
+            break;
+        }
     }
 
     private void ResumeGame(object sender, EventArgs e){
@@ -165,7 +198,7 @@ public class GameloopManager : MonoBehaviour{
 
         }
 
-        if(maxErrorLimitCounter >= 20){
+        if(maxErrorLimitCounter >= maxErrorLimit){
             Debug.Log("Hai raggiunto il limite massimo di errori! Riprova il livello.");
 
             //reimposto i valori iniziali
@@ -440,12 +473,12 @@ public class GameloopManager : MonoBehaviour{
 
                 //DEBUG RAPIDO PER TERMINARE LA CANZONE NON APPENA SI RAGGIUNGE L'OBIETTIVO IN PUNTI
                 //DA RIMUOVERE
-                /* if(Keyboard.current.pKey.wasPressedThisFrame){
-                    scoreManager.AddScore(currentLevelScore.requiredScore);
+                if(Keyboard.current.pKey.wasPressedThisFrame && difficultyAmountSO.difficultyAmount == 0){
+                    scoreManager.AddScore(currentLevelScore.requiredScore * 2);
                     rhythmDirector.EndSong();
                     playableDirector.Stop();
                     VictoryCheck(playableDirector);
-                } */
+                }
 
                 //gestione di cambio stato in pausa
                 if(Keyboard.current.escapeKey.wasPressedThisFrame || Keyboard.current.enterKey.wasPressedThisFrame){

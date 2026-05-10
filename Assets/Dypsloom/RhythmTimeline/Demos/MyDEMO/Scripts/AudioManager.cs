@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour{
 
     [SerializeField] private AudioClip cardAppearanceSound;
     [SerializeField] private AudioClip cardClickSound;
+    [SerializeField] private AudioClip difficultySettingsClickSound;
     [SerializeField] private AudioClip euphoriaReadySound;
     [SerializeField] private AudioClip euphoriaActivatedSound;
     [SerializeField] private AudioClip maxErrorLimitIncreasedSound;
@@ -31,9 +32,15 @@ public class AudioManager : MonoBehaviour{
 
         CardManagerUI.Instance.OnCardClickSound += PlayCardClickSound;
 
+        DifficultySettingsPanelUI.instance.OnDifficultySelectedAudio += PlayDifficultySettingsSound;
+
         //in caso di back to menù dalla schermata di pausa, mi assicuro che al ricaricamento della scena, l'audio riprenda normalmente alla schermata iniziale
         AudioListener.pause = false;
         
+    }
+
+    private void PlayDifficultySettingsSound(object sender, EventArgs e){
+        AudioSource.PlayClipAtPoint(difficultySettingsClickSound, Vector3.zero);
     }
 
     private void PlayBossDefeatedSound(object sender, EventArgs e){

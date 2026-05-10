@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour{
     [SerializeField] private GameObject cardChoosingPanel;
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject difficultySettingsPanel;
 
     [SerializeField] private TextMeshProUGUI scoreToPassText;
     [SerializeField] private TextMeshProUGUI startCreditSongsText;
@@ -31,6 +32,7 @@ public class UIManager : MonoBehaviour{
     public static UIManager Instance {get; private set;}
 
     public event EventHandler OnGameStart;
+    public event EventHandler OnDifficultyChanged;
     public event EventHandler OnEuphoriaReadySound; //evento che sarà intercettato dall'audioMamager
     public event EventHandler OnStopMenuSound;
     public event EventHandler OnBossWarningSound;
@@ -51,6 +53,8 @@ public class UIManager : MonoBehaviour{
         pausePanelCanvasGroup.alpha = 0;
         pausePanelCanvasGroup.interactable = false;
         pausePanelCanvasGroup.blocksRaycasts = false;
+
+        difficultySettingsPanel.SetActive(false);
         
         scoreBuffText.gameObject.SetActive(false);
         startCreditSongsText.gameObject.SetActive(false);
@@ -89,6 +93,11 @@ public class UIManager : MonoBehaviour{
         GameloopManager.Instance.OnUpdateEuphoriaUI += UpdateEuphoriaUI;
 
         ScoreChainbuffManager.Instance.OnChainBuffActivated += ShowPointsBoostText;
+    }
+
+    public void ShowDifficultySettingsPanelUI(){
+        difficultySettingsPanel.SetActive(true);
+        startCreditSongsText.gameObject.SetActive(false);
     }
 
     private void ShowPausePanelUI(object sender, EventArgs e){
@@ -184,8 +193,10 @@ public class UIManager : MonoBehaviour{
 
     public void StartGame(){
         startPanel.SetActive(false);
+        difficultySettingsPanel.SetActive(false);
         /* gameOverPanel.SetActive(false); */
         OnStopMenuSound?.Invoke(this, EventArgs.Empty); //fermo la musica del menù
+        OnDifficultyChanged?.Invoke(this, EventArgs.Empty);
         OnGameStart?.Invoke(this, EventArgs.Empty);
     }
 
