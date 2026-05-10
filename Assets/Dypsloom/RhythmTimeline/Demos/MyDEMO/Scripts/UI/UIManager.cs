@@ -167,10 +167,13 @@ public class UIManager : MonoBehaviour{
 
     private void ShowGameOverPanel(object sender, EventArgs e){
         /* gameOverPanel?.SetActive(true); */
-        CanvasGroup gameoverCanvasGroup = gameOverPanel.GetComponent<CanvasGroup>();
-        gameoverCanvasGroup.alpha = 1;
-        gameoverCanvasGroup.interactable = true;
-        gameoverCanvasGroup.blocksRaycasts = true;
+        if(gameOverPanel != null){
+
+            CanvasGroup gameoverCanvasGroup = gameOverPanel.GetComponent<CanvasGroup>();
+            gameoverCanvasGroup.alpha = 1;
+            gameoverCanvasGroup.interactable = true;
+            gameoverCanvasGroup.blocksRaycasts = true;
+        }
     }
 
     private void ShowCardChoosingPanel(object sender, EventArgs e){

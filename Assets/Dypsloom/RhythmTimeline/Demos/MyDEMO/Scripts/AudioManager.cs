@@ -17,6 +17,12 @@ public class AudioManager : MonoBehaviour{
 
     [SerializeField] private AudioMixer mainMixer;
 
+    public static AudioManager instance;
+
+    private void Awake(){
+        instance = this;
+    }
+
 
 
     private void Start(){
@@ -83,6 +89,17 @@ public class AudioManager : MonoBehaviour{
     }
 
     void OnDestroy(){
-        
+        UIManager.Instance.OnEuphoriaReadySound -= PlayEuphoriaReadySound;
+        UIManager.Instance.OnStopMenuSound -= StopAmbientMusic;
+        UIManager.Instance.OnBossWarningSound -= PlayBossWarningSound;
+        UIManager.Instance.OnBossDefeatedSound -= PlayBossDefeatedSound;
+
+        GameloopManager.Instance.OnCardsAppearSound -= PlayCardAppearanceSound;
+        GameloopManager.Instance.OnEuphoriaActivatedSound -= PlayEuphoriaActivatedSound;
+        GameloopManager.Instance.OnIncreasedMaxErrorLimitSound -= PlayMaxErrorLimitSound;
+
+        CardManagerUI.Instance.OnCardClickSound -= PlayCardClickSound;
+
+        DifficultySettingsPanelUI.instance.OnDifficultySelectedAudio -= PlayDifficultySettingsSound;
     }
 }
