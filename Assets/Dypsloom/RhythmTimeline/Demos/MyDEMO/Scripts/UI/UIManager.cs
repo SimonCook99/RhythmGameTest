@@ -32,6 +32,7 @@ public class UIManager : MonoBehaviour{
     public static UIManager Instance {get; private set;}
 
     public event EventHandler OnGameStart;
+    public event EventHandler OnGameStartAfterBossWarning; //evento intercettato dal gameloopManager per impostare lo stato di gioco a play solo dopo l'animazione del pannello di warning
     public event EventHandler OnDifficultyChanged;
     public event EventHandler OnEuphoriaReadySound; //evento che sarà intercettato dall'audioMamager
     public event EventHandler OnStopMenuSound;
@@ -120,6 +121,8 @@ public class UIManager : MonoBehaviour{
     
     public void HideBossWarningPanel(){
         bossWarningPanel.SetActive(false);
+
+        OnGameStartAfterBossWarning?.Invoke(this, EventArgs.Empty);
 
         GameloopManager.Instance.GetPlayableDirector().Play(); //faccio partire la canzone una volta finita l'animazione del pannello
     }

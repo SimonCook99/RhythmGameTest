@@ -2201,11 +2201,11 @@ RectTransform:
   - {fileID: 911345742}
   - {fileID: 2096480709}
   - {fileID: 2090159666}
+  - {fileID: 1720741072}
+  - {fileID: 2079097514}
   - {fileID: 1745948040}
   - {fileID: 32840388}
   - {fileID: 1394075374}
-  - {fileID: 1720741072}
-  - {fileID: 2079097514}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -13918,10 +13918,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3321798695791371659, guid: 5496413cdab4af54d9672da7e5d92b03, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3321798695791371660, guid: 5496413cdab4af54d9672da7e5d92b03, type: 3}
-      propertyPath: m_DisableTouchInputInEditor
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

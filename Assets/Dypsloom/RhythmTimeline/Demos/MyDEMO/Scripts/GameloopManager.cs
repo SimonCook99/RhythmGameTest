@@ -127,12 +127,19 @@ public class GameloopManager : MonoBehaviour{
 
         UIManager.Instance.OnGameStart += StartGame;
 
+        UIManager.Instance.OnGameStartAfterBossWarning += ChangeGameStateAfterBossWarningPanel;
+
         playableDirector.stopped += VictoryCheck;
 
         scoreManager.OnNoteScore += HandleBreakChain;
 
         PausePanelUI.instance.OnResumeGame += ResumeGame;
 
+    }
+
+
+    private void ChangeGameStateAfterBossWarningPanel(object sender, EventArgs e){
+        state = State.Playing; //cambio lo stato del gioco solo a fine animazione del warningPanel
     }
 
     private void ChangeDifficulty(object sender, EventArgs e){
@@ -292,10 +299,10 @@ public class GameloopManager : MonoBehaviour{
             //seleziona un chart iniziale random
             playableDirector.playableAsset = songChartsList[UnityEngine.Random.Range(0, songChartsList.Count)];
             playableDirector.Play();
+            state = State.Playing;
         }
 
 	    scoreManager.SetSong(playableDirector.playableAsset.ConvertTo<RhythmTimelineAsset>());
-        state = State.Playing;
 
         List<IEquipable> playerUpgradesList = Player.Instance.GetAllUpgradesList();
         List<IEquipable> playerDowngradesList = Player.Instance.GetAllDowngradesList();
