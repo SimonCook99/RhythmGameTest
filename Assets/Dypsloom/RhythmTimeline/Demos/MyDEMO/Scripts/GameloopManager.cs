@@ -469,7 +469,7 @@ public class GameloopManager : MonoBehaviour{
                 }
 
                 if(Keyboard.current.spaceKey.wasPressedThisFrame){
-                    if(hasEuphoria && euphoriaCooldown <= 0){
+                    if(hasEuphoria && euphoriaCooldown <= 0 && !euphoriaActive){
                         euphoriaActive = true; //segno l'euphoria come attiva
                         scoreManager.SetMultiplier(scoreManager.GetMultiplier() * 2); //raddoppia il moltiplicatore attuale
                         
