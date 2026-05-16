@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour{
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject difficultySettingsPanel;
+    [SerializeField] private GameObject optionsPanel;
 
     [SerializeField] private TextMeshProUGUI scoreToPassText;
     [SerializeField] private TextMeshProUGUI startCreditSongsText;
@@ -56,6 +57,7 @@ public class UIManager : MonoBehaviour{
         pausePanelCanvasGroup.blocksRaycasts = false;
 
         difficultySettingsPanel.SetActive(false);
+        optionsPanel.SetActive(false);
         
         scoreBuffText.gameObject.SetActive(false);
         startCreditSongsText.gameObject.SetActive(false);
@@ -98,6 +100,11 @@ public class UIManager : MonoBehaviour{
 
     public void ShowDifficultySettingsPanelUI(){
         difficultySettingsPanel.SetActive(true);
+        startCreditSongsText.gameObject.SetActive(false);
+    }
+
+    public void ShowOptionsPanelUI(){
+        optionsPanel.SetActive(true);
         startCreditSongsText.gameObject.SetActive(false);
     }
 

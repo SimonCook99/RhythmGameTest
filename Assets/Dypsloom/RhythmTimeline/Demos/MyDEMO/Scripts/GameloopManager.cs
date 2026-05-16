@@ -36,7 +36,7 @@ public class GameloopManager : MonoBehaviour{
     public event EventHandler OnEuphoriaActivatedSound;
     public event EventHandler OnIncreasedMaxErrorLimitSound;
 
-    private enum State{
+    public enum State{
         Menu,
         Playing,
         Pause,
@@ -606,6 +606,10 @@ public class GameloopManager : MonoBehaviour{
 
     public int GetScrollSpeedIndex(){
         return scrollSpeedIncreaseIndex;
+    }
+
+    public State GetState(){
+        return state;
     }
 
     //questo metodo viene richiamato dall'UIManager quando deve partire il pannello di warning, e far partire la canzone poco dopo
