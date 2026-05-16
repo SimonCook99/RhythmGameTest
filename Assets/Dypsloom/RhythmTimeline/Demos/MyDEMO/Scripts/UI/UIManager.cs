@@ -13,6 +13,9 @@ public class UIManager : MonoBehaviour{
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject difficultySettingsPanel;
     [SerializeField] private GameObject optionsPanel;
+    private CanvasGroup difficultySettingsCanvasGroup;
+
+    private CanvasGroup optionsCanvasGroup;
 
     [SerializeField] private TextMeshProUGUI scoreToPassText;
     [SerializeField] private TextMeshProUGUI startCreditSongsText;
@@ -56,8 +59,10 @@ public class UIManager : MonoBehaviour{
         pausePanelCanvasGroup.interactable = false;
         pausePanelCanvasGroup.blocksRaycasts = false;
 
-        difficultySettingsPanel.SetActive(false);
-        optionsPanel.SetActive(false);
+        /* difficultySettingsPanel.SetActive(false);
+        optionsPanel.SetActive(false); */
+        difficultySettingsCanvasGroup = difficultySettingsPanel.GetComponent<CanvasGroup>();
+        optionsCanvasGroup = optionsPanel.GetComponent<CanvasGroup>();
         
         scoreBuffText.gameObject.SetActive(false);
         startCreditSongsText.gameObject.SetActive(false);
@@ -99,12 +104,16 @@ public class UIManager : MonoBehaviour{
     }
 
     public void ShowDifficultySettingsPanelUI(){
-        difficultySettingsPanel.SetActive(true);
+        difficultySettingsCanvasGroup.alpha = 1;
+        difficultySettingsCanvasGroup.blocksRaycasts = true;
+        difficultySettingsCanvasGroup.interactable = true;
         startCreditSongsText.gameObject.SetActive(false);
     }
 
     public void ShowOptionsPanelUI(){
-        optionsPanel.SetActive(true);
+        optionsCanvasGroup.alpha = 1;
+        optionsCanvasGroup.blocksRaycasts = true;
+        optionsCanvasGroup.interactable = true;
         startCreditSongsText.gameObject.SetActive(false);
     }
 

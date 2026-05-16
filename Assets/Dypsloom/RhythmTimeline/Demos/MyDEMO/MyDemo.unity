@@ -3892,7 +3892,8 @@ GameObject:
   - component: {fileID: 511539347}
   - component: {fileID: 511539350}
   - component: {fileID: 511539349}
-  - component: {fileID: 511539348}
+  - component: {fileID: 511539351}
+  - component: {fileID: 511539352}
   m_Layer: 5
   m_Name: OptionsPanel
   m_TagString: Untagged
@@ -3926,19 +3927,6 @@ RectTransform:
   m_AnchoredPosition: {x: 169.46, y: -139.63}
   m_SizeDelta: {x: -338.92, y: -279.2524}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &511539348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 511539346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5691fbe7bb67d9b4bb54bbda4b19127c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DifficultySettingsPanelUI
-  difficultyAmountSO: {fileID: 11400000, guid: 280693d57e4a23f4a955e40162b03f9e, type: 2}
 --- !u!114 &511539349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3977,6 +3965,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 511539346}
   m_CullTransparentMesh: 1
+--- !u!114 &511539351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511539346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7482e8de50d3d641b16590d2805c5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OptionsPanelUI
+  leftInputButton: {fileID: 1016434218}
+  downInputButton: {fileID: 1473603128}
+  upInputButton: {fileID: 1276293050}
+  rightInputButton: {fileID: 1759052084}
+  leftInputText: {fileID: 1696852517}
+  downInputText: {fileID: 2007314811}
+  upInputText: {fileID: 1070703296}
+  rightInputText: {fileID: 244753241}
+  rhythmInputManager: {fileID: 1598496913}
+--- !u!225 &511539352
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511539346}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &532794754
 GameObject:
   m_ObjectHideFlags: 0
@@ -5477,6 +5498,7 @@ GameObject:
   - component: {fileID: 913449640}
   - component: {fileID: 913449639}
   - component: {fileID: 913449641}
+  - component: {fileID: 913449642}
   m_Layer: 5
   m_Name: DifficultySettingsPanel
   m_TagString: Untagged
@@ -5561,6 +5583,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DifficultySettingsPanelUI
   difficultyAmountSO: {fileID: 11400000, guid: 280693d57e4a23f4a955e40162b03f9e, type: 2}
+--- !u!225 &913449642
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913449637}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!114 &953637469 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2469149889996566922, guid: b845ddf9558de04429c394e9fdb52dad, type: 3}
@@ -7414,7 +7448,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1143399132}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 511539351}
+        m_TargetAssemblyTypeName: OptionsPanelUI, Assembly-CSharp
+        m_MethodName: HideOptionsPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1143399132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9931,9 +9977,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9021719783595813160}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: StartGame
+      - m_Target: {fileID: 913449641}
+        m_TargetAssemblyTypeName: DifficultySettingsPanelUI, Assembly-CSharp
+        m_MethodName: HideDifficultyPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
