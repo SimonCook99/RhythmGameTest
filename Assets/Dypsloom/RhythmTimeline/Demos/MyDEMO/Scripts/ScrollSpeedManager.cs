@@ -21,11 +21,11 @@ public class ScrollSpeedManager : MonoBehaviour{
                 break;
             case "Scrollspeed+ II":
                 Debug.Log("Scroll Speed II chosen, increasing note speed by 30%");
-                rhythmDirector.SetNoteSpeed(rhythmDirector.GetNoteSpeed() * 1.2f); //moltiplico per 1.2 perchè ho considerato l'1.1 precedente, quindi circa il 30% della velocità iniziale
+                rhythmDirector.SetNoteSpeed(rhythmDirector.GetNoteSpeed() * 1.15f); //moltiplico per 1.15 perchè ho considerato l'1.1 precedente, quindi circa il 30% della velocità iniziale
                 break;
             case "Scrollspeed+ III":
                 Debug.Log("Scroll Speed III chosen, increasing note speed by 50%");
-                rhythmDirector.SetNoteSpeed(rhythmDirector.GetNoteSpeed() * 1.2f); //stesso discorso, 1.1+1.2+1.2 è circa il 50% della velocità iniziale (anche se il valore non sarà preciso dato che sono valori concatenate)
+                rhythmDirector.SetNoteSpeed(rhythmDirector.GetNoteSpeed() * 1.15f); //stesso discorso, 1.1*1.15*1.15 è circa il 50% della velocità iniziale (anche se il valore non sarà preciso dato che sono valori concatenate)
                 break;
             default:
                 Debug.Log("Il downgrade scelto non è di tipo scroll speed");
